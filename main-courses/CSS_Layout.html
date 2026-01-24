@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Layout - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="../pages/modern-courses.html">Courses</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>CSS Layout</span>
+      </div>
+
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="css-layout">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Fundamentals</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>CSS Layout</span>
+          </div>
+          <h1>CSS Layout Techniques</h1>
+          <p class="lesson-desc">
+            Explore modern and classic ways to structure your web pages using Box Model, Floats, Flexbox, and Grid.
+          </p>
+        </div>
+      </div>
+
+      <!-- Lesson Content -->
+      <div class="lesson-content">
+
+        <!-- Box Model Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-cube"></i> 1. The Box Model</h2>
+          <div class="text-content">
+            <p>
+              In the default box model, when you set the width or height of an element, you are specifying the width or height of its content; any padding, border, and margins are then added to that width.
+            </p>
+            <p>
+              We can adjust the box model behavior with its <code>box-sizing</code> property:
+            </p>
+            <ul>
+              <li><strong>box-sizing: content-box</strong> (default): The height and width only apply to the content.</li>
+              <li><strong>box-sizing: border-box</strong>: The height and width properties include content, padding, and border.</li>
+            </ul>
+          </div>
+          
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>Using <code>border-box</code> is generally recommended as it makes layout calculations much more intuitive.</p>
+          </div>
+
+          <div class="box-model-demo">
+            <div class="box-label">TOP</div>
+            <div class="bm-container">
+              <div class="bm-side-label">LEFT</div>
+              <div class="bm-margin">
+                <div class="bm-border">
+                  <div class="bm-padding">
+                    <div class="bm-content">
+                      CONTENT
+                      <div class="bm-axis-h">&larr; Width &rarr;</div>
+                      <div class="bm-axis-v">&darr; Height &uarr;</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="bm-side-label">RIGHT</div>
+            </div>
+            <div class="box-label">BOTTOM</div>
+          </div>
+        </section>
+
+        <!-- CSS Layouts Intro -->
+        <section class="content-section" id="layouts">
+          <h2><i class="fas fa-th-large"></i> 2. CSS Layouts</h2>
+          <div class="text-content">
+            <p>
+              Layout techniques have evolved significantly. We'll explore the classic <strong>Float</strong> method, followed by modern standards like <strong>Flexbox</strong> and <strong>Grid</strong>.
+            </p>
+          </div>
+        </section>
+
+        <!-- Float Section -->
+        <section class="content-section" id="Float">
+          <h2><i class="fas fa-columns"></i> 2.1 Float</h2>
+          <div class="text-content">
+            <p>
+              Floats are one of the oldest methods for laying out web pages. A float pulls an element to one side of its container, allowing the document flow (usually text) to wrap around it.
+            </p>
+            <ul>
+              <li>If you float multiple elements in the same direction, they will stack alongside one another.</li>
+              <li>Floats are still the primary way to have text wrap around an image.</li>
+            </ul>
+          </div>
+
+          <div class="code-example">
+            <div class="example-header">
+              <h3>HTML Example</h3>
+              <span class="example-badge">HTML</span>
+            </div>
+            <pre><code class="language-html">&lt;img class="float-img" src="../SRC/IMAGES/Oran.jpg"&gt;
+&lt;p&gt;
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit...
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div class="code-example">
+            <div class="example-header">
+              <h3>CSS Example</h3>
+              <span class="example-badge">CSS</span>
+            </div>
+            <pre><code class="language-css">.float-img {
+  float: left;
+  margin-right: 15px;
+}</code></pre>
+          </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-block">
+          <pre class="prettyprint  lang-html">
+            &lt;img class="Float_Img" src="../SRC/IMAGES/Oran.jpg"/&gt;<br>
+            &lt;p&gt;
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus rem ad aliquid vero, cumque eligendi quasi
+            impedit ipsam quos voluptas aperiam reiciendis placeat, cum recusandae sapiente. Ullam iure laudantium modi!
+            <br>
+            &lt;/p&gt;
+          </code></pre>
+        </div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="CSS_Code">
+          <pre class="prettyprint  lang-css">
+          .Float_Img
+          {<br>
+          float: left;<br>
+          }
+          </code></pre>
+        </div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <!-- Flexbox Section -->
+        <section class="content-section" id="FlexBox">
+          <h2><i class="fas fa-arrows-alt"></i> 2.2 Flexbox</h2>
+          <div class="text-content">
+            <p>
+              Flexbox (Flexible Box Layout) is a powerful layout model that makes it easy to align elements and distribute space within a container, even when their size is unknown or dynamic.
+            </p>
+            <p>
+              Applying <code>display: flex</code> to an element turns it into a <strong>flex container</strong>, and its direct children become <strong>flex items</strong>.
+            </p>
+          </div>
+
+          <h3>Main Axis and Cross Axis</h3>
+          <div class="text-content">
+            <p>
+              Flexbox works with two axes: the <strong>Main Axis</strong> (determined by <code>flex-direction</code>) and the <strong>Cross Axis</strong> (perpendicular to the main axis).
+            </p>
+          </div>
+
+          <div class="code-example">
+            <div class="example-header">
+              <h3>Basic Flex Container</h3>
+              <span class="example-badge">CSS</span>
+            </div>
+            <pre><code class="language-css">.flex-container {
+  display: flex;
+  flex-direction: row; /* row, row-reverse, column, column-reverse */
+  justify-content: center; /* along main axis */
+  align-items: center; /* along cross axis */
+}</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 15px 0;">
+            <a href="../pages/modern-codeeditor.html" class="try-code-btn">
+              <i class="fa-solid fa-code"></i><span>Try Flexbox in Editor</span><i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="Flex_Container"&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+        <!-- Flex Direction -->
+        <div class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-arrows-left-right-to-line"></i>
+                <h2>Flex Direction</h2>
+            </div>
+            <p>The <code>flex-direction</code> property defines which direction the container wants to stack the flex items.</p>
+            
+            <div class="code-example">
+                <div class="code-header">
+                    <span><i class="fa-brand fa-css3-alt"></i> CSS</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <pre><code class="language-css">.container {
+    display: flex;
+    flex-direction: row; /* row | row-reverse | column | column-reverse */
+}</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div class="demo-label">Direction: Row (Default)</div>
+                <div style="display: flex; flex-direction: row; gap: 10px; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                    <div style="padding: 15px 25px; background: #3b82f6; color: white; border-radius: 5px;">1</div>
+                    <div style="padding: 15px 25px; background: #10b981; color: white; border-radius: 5px;">2</div>
+                    <div style="padding: 15px 25px; background: #f59e0b; color: white; border-radius: 5px;">3</div>
+                </div>
+                
+                <div class="demo-label" style="margin-top: 15px;">Direction: Column</div>
+                <div style="display: flex; flex-direction: column; gap: 10px; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                    <div style="padding: 15px 25px; background: #3b82f6; color: white; border-radius: 5px;">1</div>
+                    <div style="padding: 15px 25px; background: #10b981; color: white; border-radius: 5px;">2</div>
+                    <div style="padding: 15px 25px; background: #f59e0b; color: white; border-radius: 5px;">3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flex Wrap -->
+        <div class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-layer-group"></i>
+                <h2>Flex Wrap</h2>
+            </div>
+            <p>The <code>flex-wrap</code> property specifies whether flex items should wrap or not.</p>
+            
+            <div class="code-example">
+                <div class="code-header">
+                    <span><i class="fa-brand fa-css3-alt"></i> CSS</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <pre><code class="language-css">.container {
+    display: flex;
+    flex-wrap: wrap; /* nowrap | wrap | wrap-reverse */
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Alignment Properties -->
+        <div class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-align-center"></i>
+                <h2>Alignment Properties</h2>
+            </div>
+            
+            <div class="info-card">
+                <h4><i class="fa-solid fa-circle-info"></i> Key Properties</h4>
+                <ul>
+                    <li><strong>justify-content:</strong> Aligns items along the main-axis (horizontal by default).</li>
+                    <li><strong>align-items:</strong> Aligns items along the cross-axis (vertical by default).</li>
+                    <li><strong>align-self:</strong> Allows the default alignment (or the one specified by align-items) to be overridden for individual flex items.</li>
+                </ul>
+            </div>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span><i class="fa-brand fa-css3-alt"></i> CSS Example</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <pre><code class="language-css">.container {
+    display: flex;
+    justify-content: center; /* space-between, space-around, flex-start/end */
+    align-items: center; /* flex-start, flex-end, stretch, baseline */
+    height: 200px;
+}</code></pre>
+            </div>
+        </div>
+
+        <!-- Grid Layout -->
+        <div id="grid" class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-table-cells"></i>
+                <h2>CSS Grid Layout</h2>
+            </div>
+            <p>CSS Grid Layout offers a grid-based layout system, with rows and columns, making it easier to design web pages without having to use floats and positioning.</p>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span><i class="fa-brand fa-css3-alt"></i> CSS</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <pre><code class="language-css">.grid-container {
+    display: grid;
+    grid-template-columns: 200px auto 100px;
+    grid-template-rows: 100px 100px;
+    gap: 10px;
+}</code></pre>
+            </div>
+
+            <div class="demo-box">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; background: #f1f5f9; padding: 15px; border-radius: 8px;">
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 1</div>
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 2</div>
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 3</div>
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 4</div>
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 5</div>
+                    <div style="background: #3b82f6; color: white; padding: 20px; text-align: center; border-radius: 4px;">Cell 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Understanding Position -->
+        <div id="position" class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                <h2>The Position Property</h2>
+            </div>
+            <p>The <code>position</code> property specifies the type of positioning method used for an element.</p>
+            
+            <div class="info-card">
+                <ul>
+                    <li><strong>Static:</strong> Default value. Normal flow.</li>
+                    <li><strong>Relative:</strong> Positioned relative to its normal position.</li>
+                    <li><strong>Fixed:</strong> Positioned relative to the viewport.</li>
+                    <li><strong>Absolute:</strong> Positioned relative to the nearest positioned ancestor.</li>
+                    <li><strong>Sticky:</strong> Positioned based on the user's scroll position.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lab 3: Responsive Design -->
+        <div id="responsive" class="content-section">
+            <div class="section-header">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h2>Responsive Design & Media Queries</h2>
+            </div>
+            <p>Responsive web design makes your web page look good on all devices. It uses HTML and CSS to resize, hide, shrink, or enlarge a website.</p>
+
+            <div class="code-example">
+                <div class="code-header">
+                    <span><i class="fa-brand fa-css3-alt"></i> Media Query Example</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <pre><code class="language-css">/* Desktop First */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Mobile First (Recommended) */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+}</code></pre>
+            </div>
+        </div>
+
+  
+    <!-- Practice Code Editor Button -->
+    <div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #1A1F3A 0%, #313f84 100%); border-radius: 15px;">
+      <h2 style="color: white; margin-bottom: 15px;"><i class="fa-solid fa-laptop-code"></i> Ready to Practice?</h2>
+      <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;">Try out the concepts you've learned in our interactive code editor</p>
+      <a href="../pages/modern-codeeditor.html" class="btn-primary" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 40px; text-decoration: none;">
+        <i class="fa-solid fa-code"></i>
+        <span>Open Code Editor</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+        <!-- Navigation Buttons -->
+        <div class="lesson-navigation">
+          <a href="CSS_fundamentals.html" class="nav-btn prev-btn">
+            <i class="fas fa-arrow-left"></i> Previous: CSS Fundamentals
+          </a>
+          <a href="ELEMENT_POSITIONING.html" class="nav-btn next-btn">
+            Next: Element Positioning <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+</body>
+
+</html>
+

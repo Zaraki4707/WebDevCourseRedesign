@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Locked - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/locked.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Locked Course Page -->
+  <section class="locked-section">
+    <div class="container">
+      <div class="locked-content">
+        <div class="locked-icon">
+          <i class="fas fa-lock"></i>
+        </div>
+        <h1>Course Not Opened Yet</h1>
+        <p class="locked-message">
+          This course is currently locked and will be available soon. 
+          Your teacher will unlock it when you're ready to proceed.
+        </p>
+        
+        <div class="locked-info">
+          <div class="info-item">
+            <i class="fas fa-info-circle"></i>
+            <div>
+              <h3>Why is this locked?</h3>
+              <p>Courses are unlocked progressively to ensure you have the necessary foundation before moving forward.</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h3>When will it unlock?</h3>
+              <p id="unlockTimer">Your teacher will unlock this course based on the class schedule and your learning progress.</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-question-circle"></i>
+            <div>
+              <h3>Need Access?</h3>
+              <p>Contact your teacher if you believe you should have access to this course.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="locked-actions">
+          <a href="modern-courses.html" class="btn-primary">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+          </a>
+          <a href="modern-teachers.html" class="btn-secondary">
+            <i class="fas fa-envelope"></i> Contact Teacher
+          </a>
+        </div>
+
+        <!-- Teacher Admin Panel (Hidden by default, shown for teachers) -->
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+          <h3><i class="fas fa-user-shield"></i> Teacher Controls</h3>
+          <p>Unlock courses for students</p>
+          <button class="btn-unlock" onclick="showCourseManager()">
+            <i class="fas fa-key"></i> Manage Course Locks
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Manager Modal (For Teachers) -->
+  <div class="modal" id="courseManagerModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-cog"></i> Course Lock Manager</h2>
+        <button class="modal-close" onclick="closeCourseManager()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="modal-description">Toggle course availability for students</p>
+        <div class="course-locks-list" id="courseLocksList">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="closeCourseManager()">Close</button>
+        <button class="btn-primary" onclick="saveCourseLocks()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Web Development Course</h4>
+          <p>ENSIA 2023 - Interactive Learning Platform</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="modern-index.html">Home</a></li>
+            <li><a href="modern-courses.html">Courses</a></li>
+            <li><a href="modern-teachers.html">Teachers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Need Help?</h4>
+          <p>Contact your teacher for course access</p>
+        </div>
+        <div class="footer-section">
+          <h4>Developer</h4>
+          <p><a href="https://zakaria-mekki.vercel.app" target="_blank" style="color: #FF6B35; text-decoration: none;"><i class="fas fa-code"></i> Zakaria Mekki</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023-2026 ENSIA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../modern-assets/js/main.js"></script>
+  <script src="../modern-assets/js/course-manager.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const courseId = urlParams.get('course');
+      
+      if (courseId) {
+        const locks = JSON.parse(localStorage.getItem('courseLocks') || '{}');
+        const lockData = locks[courseId];
+        
+        if (lockData && lockData.unlockDate) {
+          const unlockDate = new Date(lockData.unlockDate);
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          const dateStr = unlockDate.toLocaleDateString(undefined, options);
+          
+          document.getElementById('unlockTimer').innerHTML = `This course is scheduled to automatically unlock on <strong>${dateStr}</strong>.`;
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,22 @@
+# Vercel Deployment Configuration
+
+# 1. Output Directory
+# Vercel will serve static files from this folder
+output: .
+
+# 2. Clean URLs
+cleanUrls: true
+
+# 3. Rewrites (optional, for SPA routing)
+# Uncomment if you want all routes to serve index.html
+# rewrites:
+#   - source: /(.*)
+#     destination: /index.html
+
+# 4. Ignore files/folders (optional)
+# ignore:
+#   - node_modules/
+#   - .git/
+
+# 5. Vercel Project Settings
+# You can also set these in the Vercel dashboard

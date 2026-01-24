@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 10</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="lab-10">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Labs</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>Lab 10</span>
+          </div>
+          <h1>Lab 10</h1>
+        </div>
+        <div class="lesson-actions">
+          <button class="action-btn" onclick="markLabComplete()">
+            <i class="fas fa-check-circle"></i> Mark Complete
+          </button>
+        </div>
+      </div>
+
+      <div class="lesson-content">
+        <section class="content-section">
+        
+      </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../modern-assets/js/main.js"></script>
+  <script>
+    function markLabComplete() {
+      const courseId = document.querySelector('.lesson-header').dataset.courseId;
+      window.CourseApp.markLessonComplete(courseId);
+      const btn = event.target.closest('.action-btn');
+      btn.classList.add('completed');
+      btn.innerHTML = '<i class="fas fa-check-circle"></i> Completed';
+      window.CourseApp.showNotification('Lab marked as complete!', 'success');
+    }
+    
+    // Check if already completed
+    document.addEventListener('DOMContentLoaded', () => {
+      const courseId = document.querySelector('.lesson-header').dataset.courseId;
+      if (window.CourseApp && window.CourseApp.isLessonComplete && window.CourseApp.isLessonComplete(courseId)) {
+        const btn = document.querySelector('.action-btn');
+        if(btn) {
+            btn.classList.add('completed');
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Completed';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

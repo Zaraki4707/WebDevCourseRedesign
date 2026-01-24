@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Web Dev Course</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+    }
+
+    .login-container {
+      background: var(--white);
+      padding: 50px;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      max-width: 450px;
+      width: 100%;
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .login-header i {
+      font-size: 4rem;
+      color: var(--primary-orange);
+      margin-bottom: 20px;
+    }
+
+    .login-header h1 {
+      color: var(--dark-blue);
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .login-header p {
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark-blue);
+      font-weight: 500;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid var(--gray-medium);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-orange);
+    }
+
+    .form-group input::placeholder {
+      color: var(--gray-dark);
+      opacity: 0.6;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .login-btn:hover {
+      background: #FF5722;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .login-btn:disabled {
+      background: var(--gray-medium);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .error-message {
+      background: #ffebee;
+      color: #c62828;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .error-message.show {
+      display: flex;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      color: var(--primary-orange);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .back-link a:hover {
+      gap: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-header">
+      <i class="fas fa-shield-alt"></i>
+      <h1>Admin Access</h1>
+      <p>Web Development Course Administration</p>
+    </div>
+
+    <div class="error-message" id="errorMessage">
+      <i class="fas fa-exclamation-circle"></i>
+      <span id="errorText"></span>
+    </div>
+
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">
+          <i class="fas fa-envelope"></i> Email Address
+        </label>
+        <input type="email" id="email" placeholder="admin@ensia.edu.dz" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">
+          <i class="fas fa-lock"></i> Password
+        </label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="login-btn">
+        <i class="fas fa-sign-in-alt"></i>
+        <span>Login to Dashboard</span>
+      </button>
+    </form>
+
+    <div class="back-link">
+      <a href="../pages/modern-index.html">
+        <i class="fas fa-arrow-left"></i>
+        Back to Home
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const ADMIN_PASSWORD = 'webdev2026byzak';
+    const SUPER_ADMINS = [
+      'zakaria-abdenour.mekki@ensia.edu.dz',
+      'mohamed.mahmoudi@ensia.edu.dz'
+    ];
+
+    const NORMAL_ADMINS = [
+      'amir.djouama@ensia.edu.dz',
+      'yacine.sahraoui@ensia.edu.dz',
+      'mohamed-akram.khelili@ensia.edu.dz',
+      'youcef.omari@ensia.edu.dz',
+      'chabane.djeddi@ensia.edu.dz',
+      'sami.abdellatif@ensia.edu.dz',
+      'youssra.izountar@ensia.edu.dz'
+    ];
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('email').value.trim().toLowerCase();
+      const password = document.getElementById('password').value;
+      const errorMessage = document.getElementById('errorMessage');
+      const errorText = document.getElementById('errorText');
+      
+      // Validate credentials
+      if (password !== ADMIN_PASSWORD) {
+        errorText.textContent = 'Invalid password';
+        errorMessage.classList.add('show');
+        return;
+      }
+
+      const isSuperAdmin = SUPER_ADMINS.includes(email);
+      const isNormalAdmin = NORMAL_ADMINS.includes(email);
+
+      if (!isSuperAdmin && !isNormalAdmin) {
+        errorText.textContent = 'Unauthorized email address';
+        errorMessage.classList.add('show');
+        return;
+      }
+
+      // Store admin session
+      const adminData = {
+        email: email,
+        role: isSuperAdmin ? 'super' : 'normal',
+        loginTime: new Date().toISOString()
+      };
+
+      localStorage.setItem('adminSession', JSON.stringify(adminData));
+      
+      // Redirect to dashboard
+      window.location.href = 'admin-dashboard.html';
+    });
+
+    // Hide error message on input
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', function() {
+        document.getElementById('errorMessage').classList.remove('show');
+      });
+    });
+  </script>
+</body>
+
+</html>
+

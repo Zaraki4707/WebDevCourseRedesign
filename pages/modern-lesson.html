@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="courseTitle">HTML - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="../modern-assets/css/code-editor.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="lesson-sidebar" id="lessonSidebar">
+      <div class="sidebar-header">
+        <h3><i class="fas fa-list"></i> Course Content</h3>
+        <button class="sidebar-close" id="sidebarClose">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="sidebar-content" id="sidebarContent">
+        <!-- Will be populated by JavaScript based on course -->
+      </div>
+    </aside>
+
+    <!-- Main Lesson Content -->
+    <main class="lesson-main">
+      <button class="sidebar-toggle" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="modern-index.html"><i class="fas fa-home"></i> Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="modern-courses.html">Courses</a>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadcrumbCourse">HTML</span>
+      </div>
+
+      <!-- Lesson Header -->
+      <div class="lesson-header">
+        <h1 id="lessonTitle">HTML</h1>
+        <div class="lesson-actions">
+          <button class="action-btn" onclick="markComplete()">
+            <i class="fas fa-check-circle"></i> Mark Complete
+          </button>
+          <button class="action-btn" onclick="toggleBookmark()">
+            <i class="fas fa-bookmark"></i> Bookmark
+          </button>
+        </div>
+      </div>
+
+      <!-- Lesson Content -->
+      <div class="lesson-content" id="lessonContent">
+        
+        <!-- Introduction Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i> What is HTML?</h2>
+          <div class="text-content">
+            <p>
+              HTML stands for Hyper Text Markup Language. It is the standard markup language for creating Web pages. It
+              describes the structure of Web pages using markup. HTML elements are the building blocks of HTML pages. With
+              HTML constructs, images and other objects, such as interactive forms, may be embedded into the rendered page.
+            </p>
+            <p>
+              It provides a means to create structured documents by denoting structural semantics for text such as headings,
+              paragraphs, lists, links, quotes, and other items. It can embed scripts written in languages such as
+              JavaScript which affect the behavior of HTML web pages.
+            </p>
+            <div class="info-box">
+              <i class="fas fa-lightbulb"></i>
+              <p>To read the living standard of HTML, visit the 
+                <a href="https://html.spec.whatwg.org/multipage/" target="_blank">official specification</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTML Structure Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-sitemap"></i> The Structure of HTML Pages</h2>
+          <div class="text-content">
+            <p>
+              HTML documents follow a standard structure that defines how content is organized. Every HTML page starts with 
+              a document type declaration and contains specific elements that browsers use to render the page correctly.
+            </p>
+          </div>
+
+          <!-- Interactive Code Example -->
+          <div class="code-example">
+            <div class="example-header">
+              <h3>Basic HTML Structure</h3>
+              <span class="example-badge">Try it yourself!</span>
+            </div>
+            <div id="htmlStructureEditor"></div>
+          </div>
+
+          <div class="key-points">
+            <h3><i class="fas fa-key"></i> Key Points:</h3>
+            <ul>
+              <li>
+                <strong>&lt;!DOCTYPE html&gt;</strong> - Declaration that tells the browser this is an HTML5 document
+              </li>
+              <li>
+                <strong>&lt;html&gt;</strong> - Root element that wraps all content on the page
+              </li>
+              <li>
+                <strong>lang attribute</strong> - Specifies the language of the document (e.g., "en" for English)
+              </li>
+              <li>
+                <strong>&lt;head&gt;</strong> - Contains meta-information like title, character set, and CSS links
+              </li>
+              <li>
+                <strong>&lt;meta charset="UTF-8"&gt;</strong> - Defines character encoding for proper text display
+              </li>
+              <li>
+                <strong>&lt;title&gt;</strong> - Sets the page title shown in browser tab
+              </li>
+              <li>
+                <strong>&lt;body&gt;</strong> - Contains all visible content displayed in the browser
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- HTML Elements - Headings -->
+        <section class="content-section">
+          <h2><i class="fas fa-heading"></i> Headings</h2>
+          <div class="text-content">
+            <p>
+              HTML has six levels of headings, which use the elements &lt;h1&gt; through &lt;h6&gt;. 
+              Headings are used to represent the hierarchical structure of the content. The &lt;h1&gt; element 
+              represents the highest level of heading, while the &lt;h6&gt; element represents the lowest level.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <div class="example-header">
+              <h3>Heading Examples</h3>
+              <span class="example-badge">Interactive</span>
+            </div>
+            <div id="headingsEditor"></div>
+          </div>
+        </section>
+
+        <!-- HTML Elements - Paragraphs -->
+        <section class="content-section">
+          <h2><i class="fas fa-paragraph"></i> Paragraphs</h2>
+          <div class="text-content">
+            <p>
+              The &lt;p&gt; element is used to create a paragraph. Browsers automatically add some space (margin) 
+              before and after each &lt;p&gt; element. Text is easier to understand when it is split up into 
+              units of text, and paragraphs provide this structure.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <div class="example-header">
+              <h3>Paragraph Example</h3>
+              <span class="example-badge">Edit & Run</span>
+            </div>
+            <div id="paragraphEditor"></div>
+          </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="content-section practice-section">
+          <h2><i class="fas fa-laptop-code"></i> Practice Exercise</h2>
+          <div class="text-content">
+            <p>
+              Ready to practice? Use our interactive code editor to write and test your own HTML code!
+            </p>
+            <p>
+              <strong>Try creating:</strong>
+            </p>
+            <ul>
+              <li>A main heading with your name</li>
+              <li>A subheading with "About Me"</li>
+              <li>Two paragraphs describing yourself</li>
+              <li>Another subheading with "My Interests"</li>
+              <li>A paragraph about your hobbies</li>
+            </ul>
+          </div>
+
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Open Code Editor</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="lesson-navigation">
+          <a href="modern-courses.html" class="nav-btn prev-btn">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+          </a>
+          <a href="modern-lesson.html?course=CSS_fundamentals" class="nav-btn next-btn">
+            Next: CSS Fundamentals <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Web Development Course</h4>
+          <p>ENSIA 2023 - Interactive Learning Platform</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="modern-index.html">Home</a></li>
+            <li><a href="modern-courses.html">Courses</a></li>
+            <li><a href="modern-teachers.html">Teachers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>ENSIA - Algeria</p>
+          <p>mohamed.mahmoudi@ensia.edu.dz</p>
+        </div>
+        <div class="footer-section">
+          <h4>Developer</h4>
+          <p><a href="https://zakaria-mekki.vercel.app" target="_blank" style="color: #FF6B35; text-decoration: none;"><i class="fas fa-code"></i> Zakaria Mekki</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023-2026 ENSIA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../modern-assets/js/main.js"></script>
+  <script src="../modern-assets/js/lesson.js"></script>
+  <script src="../modern-assets/js/code-editor.js"></script>
+  <script>
+    // Initialize code editors - robust loading approach
+    function initializeEditors() {
+      console.log('Starting editor initialization...');
+      
+      try {
+        // Verify CodeEditor is available
+        if (typeof CodeEditor === 'undefined') {
+          console.error('CodeEditor class not loaded');
+          return;
+        }
+
+// HTML Structure Editor (Read-only example)
+        new CodeEditor('htmlStructureEditor', {
+          language: 'html',
+          initialCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My First Page</title>
+</head>
+<body>
+  <h1>Welcome to HTML!</h1>
+  <p>This is my first webpage.</p>
+</body>
+</html>`,
+          showPreview: true,
+          readOnly: true
+      });
+
+// Headings Editor (Read-only example)
+        new CodeEditor('headingsEditor', {
+          language: 'html',
+          initialCode: `<h1>This is a Level 1 Heading</h1>
+<h2>This is a Level 2 Heading</h2>
+<h3>This is a Level 3 Heading</h3>
+<h4>This is a Level 4 Heading</h4>
+<h5>This is a Level 5 Heading</h5>
+<h6>This is a Level 6 Heading</h6>`,
+          showPreview: true,
+          readOnly: true
+      });
+
+// Paragraph Editor (Read-only example)
+        new CodeEditor('paragraphEditor', {
+          language: 'html',
+          initialCode: `<p>
+  A paragraph consists of one or more sentences that form a 
+  self-contained unit of discourse. The start of a paragraph 
+  is indicated by a new line.
+</p>
+
+<p>
+  Text is easier to understand when it is split up into units. 
+  For example, a book may have chapters with subheadings, and 
+  under each heading there will be one or more paragraphs.
+</p>`,
+          showPreview: true,
+          readOnly: true
+      });
+
+        // Practice Editor
+        new CodeEditor('practiceEditor', {
+          language: 'html',
+          initialCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <title>About Me</title>
+</head>
+<body>
+  <!-- Write your code here -->
+  
+</body>
+</html>`,
+          showPreview: true
+        });
+        
+        console.log('✓ All code editors initialized successfully');
+      } catch (error) {
+        console.error('✗ Error initializing code editors:', error);
+      }
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeEditors);
+    } else {
+      initializeEditors();
+    }
+  </script>
+
+  <style>
+    .practice-editor-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      text-decoration: none;
+      background: var(--primary-orange);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .practice-editor-btn:hover {
+      background: #FF5722;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .practice-editor-btn i:last-child {
+      transition: transform 0.3s ease;
+    }
+
+    .practice-editor-btn:hover i:last-child {
+      transform: translateX(5px);
+    }
+  </style>
+</body>
+
+</html>
+

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/courses.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="modern-courses.html" class="active"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-book"></i> Course Catalog</h1>
+      <p>Explore our comprehensive web development curriculum</p>
+      <div class="progress-overview">
+        <div class="progress-bar">
+          <div class="progress-bar-fill" id="overallProgress"></div>
+        </div>
+        <span class="progress-percentage" id="progressText">0% Complete</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Course Categories -->
+  <section class="section courses-section">
+    <div class="container">
+      <!-- Filter Buttons -->
+      <div class="course-filters">
+        <button class="filter-btn active" data-filter="all">
+          <i class="fas fa-th"></i> All Courses
+        </button>
+        <button class="filter-btn" data-filter="fundamentals">
+          <i class="fas fa-layer-group"></i> Fundamentals
+        </button>
+        <button class="filter-btn" data-filter="advanced">
+          <i class="fas fa-rocket"></i> Advanced
+        </button>
+        <button class="filter-btn" data-filter="optional">
+          <i class="fas fa-star"></i> Optional Tracks
+        </button>
+        <button class="filter-btn" data-filter="labs">
+          <i class="fas fa-laptop-code"></i> Labs
+        </button>
+      </div>
+
+      <!-- Fundamentals Section -->
+      <div class="course-category" data-category="fundamentals">
+        <h2 class="category-title">
+          <i class="fas fa-layer-group"></i> Fundamentals
+        </h2>
+        <div class="courses-grid">
+          <!-- Introduction -->
+          <div class="course-card" data-course-id="introduction">
+            <div class="course-badge">Start Here</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <i class="fas fa-book-open"></i>
+            </div>
+            <div class="course-content">
+              <h3>Introduction</h3>
+              <p>Get started with web development fundamentals and course overview</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 2 hours</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('introduction')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- HTML -->
+          <div class="course-card" data-course-id="html">
+            <div class="course-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+              <i class="fab fa-html5"></i>
+            </div>
+            <div class="course-content">
+              <h3>HTML</h3>
+              <p>Learn HTML structure, elements, forms, and semantic markup</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('html')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- CSS Fundamentals -->
+          <div class="course-card" data-course-id="css-fundamentals">
+            <div class="course-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <div class="course-content">
+              <h3>CSS Fundamentals</h3>
+              <p>Master styling, selectors, properties, and responsive design basics</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 5 hours</span>
+                <span><i class="fas fa-signal"></i> Beginner</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('css-fundamentals')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- CSS Layout -->
+          <div class="course-card" data-course-id="css-layout">
+            <div class="course-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+              <i class="fas fa-th-large"></i>
+            </div>
+            <div class="course-content">
+              <h3>CSS Layout</h3>
+              <p>Flexbox, Grid, positioning, and modern layout techniques</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('css-layout')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Element Positioning -->
+          <div class="course-card" data-course-id="positioning">
+            <div class="course-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <i class="fas fa-vector-square"></i>
+            </div>
+            <div class="course-content">
+              <h3>Element Positioning</h3>
+              <p>Deep dive into positioning, z-index, and layout control</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 3 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('positioning')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- JavaScript Section -->
+      <div class="course-category" data-category="advanced">
+        <h2 class="category-title">
+          <i class="fas fa-code"></i> JavaScript & Interactivity
+        </h2>
+        <div class="courses-grid">
+          <!-- Introduction to JavaScript -->
+          <div class="course-card" data-course-id="intro-javascript">
+            <div class="course-icon" style="background: linear-gradient(135deg, #fdeb71 0%, #f8d800 100%);">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <div class="course-content">
+              <h3>Introduction to JavaScript</h3>
+              <p>Variables, data types, operators, and control structures</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 6 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('intro-javascript')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- DOM Manipulation -->
+          <div class="course-card" data-course-id="dom">
+            <div class="course-icon" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <div class="course-content">
+              <h3>DOM Manipulation</h3>
+              <p>Document Object Model, selectors, and dynamic content</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 5 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('dom')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- JavaScript Events -->
+          <div class="course-card" data-course-id="javascript-events">
+            <div class="course-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+              <i class="fas fa-mouse-pointer"></i>
+            </div>
+            <div class="course-content">
+              <h3>JavaScript Events</h3>
+              <p>Event handling, listeners, bubbling, and delegation</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('javascript-events')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Form Validation -->
+          <div class="course-card" data-course-id="form-validation">
+            <div class="course-icon" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="course-content">
+              <h3>JS Form Validation</h3>
+              <p>Client-side validation, regex, and user input handling</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 3 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('form-validation')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- jQuery -->
+          <div class="course-card" data-course-id="jquery">
+            <div class="course-icon" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+              <i class="fas fa-code-branch"></i>
+            </div>
+            <div class="course-content">
+              <h3>jQuery</h3>
+              <p>jQuery library, selectors, effects, and AJAX basics</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('jquery')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- AJAX -->
+          <div class="course-card" data-course-id="ajax">
+            <div class="course-icon" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">
+              <i class="fas fa-sync-alt"></i>
+            </div>
+            <div class="course-content">
+              <h3>AJAX</h3>
+              <p>Asynchronous requests, fetch API, and dynamic data loading</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 5 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('ajax')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Backend & Advanced Section -->
+      <div class="course-category" data-category="advanced">
+        <h2 class="category-title">
+          <i class="fas fa-server"></i> Backend & Advanced Topics
+        </h2>
+        <div class="courses-grid">
+          <!-- PHP Introduction -->
+          <div class="course-card" data-course-id="php-intro">
+            <div class="course-icon" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+              <i class="fab fa-php"></i>
+            </div>
+            <div class="course-content">
+              <h3>Introduction to PHP</h3>
+              <p>Server-side programming, variables, functions, and forms</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 6 hours</span>
+                <span><i class="fas fa-signal"></i> Intermediate</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('php-intro')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- OOP PHP -->
+          <div class="course-card" data-course-id="oop-php">
+            <div class="course-icon" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
+              <i class="fas fa-cube"></i>
+            </div>
+            <div class="course-content">
+              <h3>Object-Oriented PHP</h3>
+              <p>Classes, objects, inheritance, and design patterns in PHP</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 6 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('oop-php')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- PHP MySQL -->
+          <div class="course-card" data-course-id="php-mysql">
+            <div class="course-icon" style="background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="course-content">
+              <h3>PHP & MySQL</h3>
+              <p>Database connectivity, CRUD operations, and data management</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 7 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('php-mysql')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Sessions & Cookies -->
+          <div class="course-card" data-course-id="sessions-cookies">
+            <div class="course-icon" style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);">
+              <i class="fas fa-cookie"></i>
+            </div>
+            <div class="course-content">
+              <h3>Sessions & Cookies</h3>
+              <p>State management, authentication, and session handling</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 4 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('sessions-cookies')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional Tracks Section -->
+      <div class="course-category" data-category="optional">
+        <h2 class="category-title">
+          <i class="fas fa-star"></i> Optional Specialized Tracks
+        </h2>
+        <div class="courses-grid">
+          <!-- Security -->
+          <div class="course-card" data-course-id="security">
+            <div class="course-icon" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="course-content">
+              <h3>Web Security</h3>
+              <p>SQL injection, XSS, CSRF, and security best practices</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 5 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('security')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- MVC -->
+          <div class="course-card" data-course-id="mvc">
+            <div class="course-icon" style="background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);">
+              <i class="fas fa-sitemap"></i>
+            </div>
+            <div class="course-content">
+              <h3>MVC Architecture</h3>
+              <p>Model-View-Controller pattern and application structure</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 6 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('mvc')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- React JS -->
+          <div class="course-card" data-course-id="react">
+            <div class="course-icon" style="background: linear-gradient(135deg, #61dafb 0%, #21a1c4 100%);">
+              <i class="fab fa-react"></i>
+            </div>
+            <div class="course-content">
+              <h3>React JS</h3>
+              <p>Modern frontend framework, components, and state management</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 8 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('react')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Unit Testing -->
+          <div class="course-card" data-course-id="unit-testing">
+            <div class="course-icon" style="background: linear-gradient(135deg, #96fbc4 0%, #f9f586 100%);">
+              <i class="fas fa-vial"></i>
+            </div>
+            <div class="course-content">
+              <h3>Unit Testing</h3>
+              <p>Testing fundamentals, test-driven development, and debugging</p>
+              <div class="course-meta">
+                <span><i class="fas fa-clock"></i> 5 hours</span>
+                <span><i class="fas fa-signal"></i> Advanced</span>
+              </div>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('unit-testing')">
+                Start Course <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Labs Section -->
+      <div class="course-category" data-category="labs">
+        <h2 class="category-title">
+          <i class="fas fa-laptop-code"></i> Practical Labs
+        </h2>
+        <div class="courses-grid">
+          <div class="course-card" data-course-id="lab-0">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 0 - Setup</h3>
+              <p>Environment setup and development tools configuration</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-0')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-1">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 1 - HTML Basics</h3>
+              <p>Create your first HTML page with proper structure</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-1')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-2">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 2 - CSS Styling</h3>
+              <p>Build a styled webpage with modern CSS techniques</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-2')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- More labs 3-13 -->
+          <div class="course-card" data-course-id="lab-3">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 3 - Responsive Design</h3>
+              <p>Create a mobile-friendly responsive website</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-3')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-4">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 4 - JavaScript Basics</h3>
+              <p>Interactive elements with JavaScript</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-4')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-5">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #fdeb71 0%, #f8d800 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 5 - DOM Manipulation</h3>
+              <p>Dynamic content and DOM operations</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-5')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-6">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 6 - jQuery</h3>
+              <p>Simplifying JavaScript with the jQuery library</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-6')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-7">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 7 - PHP Introduction</h3>
+              <p>Introduction to server-side scripting with PHP</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-7')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-9">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 9 - PHP & MySQL</h3>
+              <p>Connecting PHP applications to MySQL databases</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-9')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-10">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 10 - Sessions & Auth</h3>
+              <p>User authentication and session management</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-10')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-11">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 11 - AJAX Basics</h3>
+              <p>Working with asynchronous requests and JSON</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-11')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-12">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 12 - MVC Implementation</h3>
+              <p>Building a basic MVC framework with PHP</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-12')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="course-card" data-course-id="lab-13">
+            <div class="course-badge lab-badge">Lab</div>
+            <div class="course-icon" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="course-content">
+              <h3>Lab 13 - Final Project</h3>
+              <p>Applying all skills to a comprehensive web project</p>
+            </div>
+            <div class="course-footer">
+              <button class="course-btn" onclick="openCourse('lab-13')">
+                Start Lab <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Web Development Course</h4>
+          <p>ENSIA 2023 - Interactive Learning Platform</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="modern-index.html">Home</a></li>
+            <li><a href="modern-courses.html">Courses</a></li>
+            <li><a href="modern-teachers.html">Teachers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>ENSIA - Algeria</p>
+          <p>mohamed.mahmoudi@ensia.edu.dz</p>
+        </div>
+        <div class="footer-section">
+          <h4>Developer</h4>
+          <p><a href="https://zakaria-mekki.vercel.app" target="_blank" style="color: #FF6B35; text-decoration: none;"><i class="fas fa-code"></i> Zakaria Mekki</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023-2026 ENSIA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../modern-assets/js/main.js"></script>
+  <script src="../modern-assets/js/courses.js?v=2"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/progress.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="modern-progress.html" class="active"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-chart-line"></i> Your Learning Progress</h1>
+      <p>Track your journey through web development mastery</p>
+    </div>
+  </section>
+
+  <!-- Progress Dashboard -->
+  <section class="section progress-section">
+    <div class="container">
+      
+      <!-- Overall Progress -->
+      <div class="progress-card overall-progress">
+        <h2><i class="fas fa-trophy"></i> Overall Progress</h2>
+        <div class="progress-circle" id="progressCircle">
+          <svg width="200" height="200">
+            <circle cx="100" cy="100" r="90" stroke="#E0E0E0" stroke-width="15" fill="none" />
+            <circle cx="100" cy="100" r="90" stroke="#FF6B35" stroke-width="15" fill="none" 
+                    stroke-dasharray="565.48" stroke-dashoffset="565.48" 
+                    transform="rotate(-90 100 100)" id="progressRing" />
+          </svg>
+          <div class="progress-text">
+            <span class="progress-percent" id="progressPercent">0%</span>
+            <span class="progress-label">Complete</span>
+          </div>
+        </div>
+        <div class="progress-stats">
+          <div class="stat-item">
+            <i class="fas fa-check-circle"></i>
+            <div>
+              <h3 id="completedCount">0</h3>
+              <p>Completed</p>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-clock"></i>
+            <div>
+              <h3 id="remainingCount">20</h3>
+              <p>Remaining</p>
+            </div>
+          </div>
+          <div class="stat-item">
+            <i class="fas fa-bookmark"></i>
+            <div>
+              <h3 id="bookmarkedCount">0</h3>
+              <p>Bookmarked</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Progress -->
+      <div class="progress-categories">
+        <h2><i class="fas fa-layer-group"></i> Progress by Category</h2>
+        
+        <div class="category-card">
+          <div class="category-header">
+            <h3><i class="fas fa-layer-group"></i> Fundamentals</h3>
+            <span class="category-percent" id="fundamentalsPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="fundamentalsBar"></div>
+          </div>
+          <p class="category-info" id="fundamentalsInfo">0 of 5 lessons completed</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <h3><i class="fas fa-code"></i> JavaScript</h3>
+            <span class="category-percent" id="javascriptPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="javascriptBar"></div>
+          </div>
+          <p class="category-info" id="javascriptInfo">0 of 6 lessons completed</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <h3><i class="fas fa-server"></i> Backend</h3>
+            <span class="category-percent" id="backendPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="backendBar"></div>
+          </div>
+          <p class="category-info" id="backendInfo">0 of 4 lessons completed</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-header">
+            <h3><i class="fas fa-rocket"></i> Advanced</h3>
+            <span class="category-percent" id="advancedPercent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar-fill" id="advancedBar"></div>
+          </div>
+          <p class="category-info" id="advancedInfo">0 of 4 lessons completed</p>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="progress-card recent-activity">
+        <h2><i class="fas fa-history"></i> Recent Activity</h2>
+        <div id="recentActivityList">
+          <p class="no-activity">No activity yet. Start learning to see your progress!</p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="progress-actions">
+        <a href="modern-courses.html" class="action-btn primary">
+          <i class="fas fa-play"></i> Continue Learning
+        </a>
+        <button class="action-btn secondary" onclick="resetProgress()">
+          <i class="fas fa-redo"></i> Reset Progress
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Web Development Course</h4>
+          <p>ENSIA 2023 - Interactive Learning Platform</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="modern-index.html">Home</a></li>
+            <li><a href="modern-courses.html">Courses</a></li>
+            <li><a href="modern-teachers.html">Teachers</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>ENSIA - Algeria</p>
+          <p>mohamed.mahmoudi@ensia.edu.dz</p>
+        </div>
+        <div class="footer-section">
+          <h4>Developer</h4>
+          <p><a href="https://zakaria-mekki.vercel.app" target="_blank" style="color: #FF6B35; text-decoration: none;"><i class="fas fa-code"></i> Zakaria Mekki</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2023-2026 ENSIA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../modern-assets/js/main.js"></script>
+  <script src="../modern-assets/js/progress.js"></script>
+</body>
+
+</html>
+

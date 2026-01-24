@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS Form Validation - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="form-validation">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>JavaScript</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>Form Validation</span>
+          </div>
+          <h1>JavaScript Form Validation</h1>
+          <p class="lesson-desc">
+            Learn how to use JavaScript to validate user input on the client side before sending it to the server.
+          </p>
+        </div>
+      </div>
+        <section>
+            <h1 class="Section_Title">Instructions</h1>
+            <p class="description">
+                In this course, we will see how to validate some of the most common inputs and return an error message
+                before sending data to the server. Here is a simple example of a <a
+                    href="../SRC/Labs/Lab_4/Form_Validation.html">form.</a>
+                <br>
+                We won't discuss the HTML/CSS part, but if you are interested you can find the complete code <a
+                    href="https://github.com/ENSIA-AI/Web_Development_2023/tree/main/SRC/Labs/Lab_4">here.</a>
+            </p>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">let Name = document.querySelector("#Name"), <br>
+User_Name = document.querySelector("#User_Name"), <br>
+Password = document.querySelector("#Password"), <br>
+Confirm_Password = document.querySelector("#Confirm_Password"), <br>
+Birthdate = document.querySelector("#Birthdate"), <br>
+Email = document.querySelector("#Email"), <br>
+Phone_Number = document.querySelector("#Phone_Number"), <br>
+Submit_Btn = document.querySelector("#Submit_Btn"), <br>
+small = document.querySelector("small");
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    <ul>
+                        <li>First, we have to fetch all the inputs that we want to check their inputs.</li>
+                        <li>We also have to fetch the button to change its default behavior.</li>
+                        <li>Finally, a small tag is added at the end (under the submit button) to show eventual errors.
+                        </li>
+                        <li>At first, this small tag is empty.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">Submit_Btn.addEventListener("click", (event) => { <br>
+event.preventDefault(); <br>
+checkInputs(); <br>
+});
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    <ul>
+                        <li>Here, we are just registering an event on the submit button.</li>
+                        <li>It will first stop the default behavior on this button (using event.preventDefault();) which
+                            is sending
+                            data to the server.</li>
+                        <li>Then, it will call a function (using checkInputs();) that we implemented below to check all
+                            the input
+                            fields.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">function checkInputs() { <br>
+// get the values from the inputs <br>
+const NameValue = Name.value.trim(); <br>
+const User_NameValue = User_Name.value.trim(); <br>
+const PasswordValue = Password.value.trim(); <br>
+const Confirm_PasswordValue = Confirm_Password.value.trim(); <br>
+const BirthdateValue = Birthdate.value.trim(); <br>
+const EmailValue = Email.value.trim(); <br>
+const Phone_NumberValue = Phone_Number.value.trim(); <br>
+.........
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    <ul>
+                        <li>At the beginning of the checkInputs() function, we will retrieve the values inside the input
+                            fields.
+                        </li>
+                        <li>After that, we use the built-in trim() method to delete the blank space before and after the
+                            text.</li>
+                        <li>We declared these values as constants, so they won't be altered before checking them.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">if (NameValue === "") { <br>
+// show error <br>
+// add error class <br>
+setErrorFor(Name, "Name cannot be blank"); <br>
+} else { <br>
+// add success class <br>
+setSuccessFor(Name); <br>
+}
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    We will start by checking the Name input field. If it is empty, we will call a function (using
+                    setErrorFor();)
+                    to show an error message and add an error class to the input field. Otherwise, we will call another
+                    function
+                    (using setSuccessFor();) to add a success class to the input field. <br>
+                    <ul>
+                        <li>These functions are implemented below.</li>
+                        <li>They will add a class to the input field to change its color and show an error message.</li>
+                        <li>They will also change the small tag to show the error message.</li>
+                    </ul>
+                    See the details in the code below.
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">function setErrorFor(input, message) { <br>
+// add error message inside small <br>
+small.innerText += "\n" + message; <br>
+<br>
+// add error class <br>
+input.className += " error"; <br>
+} <br>
+<br>
+function setSuccessFor(input) { <br>
+input.className += " success"; <br>
+}
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    Here is the implementation of the setErrorFor() and setSuccessFor() functions. <br>
+                    <ul>
+                        <li>They will add a class to the input field to change its color and show an error message.</li>
+                        <li>They will also change the small tag to show the error message.</li>
+                    </ul>
+                    The error class will change the color of the input field to red and the success class will change it
+                    to green.
+                    <br>
+                    See the details in the code below.
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">.error { <br>
+color: red; <br>
+background-color: rgb(255 0 0/ 0.1); <br>
+border: 1px solid red; <br>
+} <br>
+
+.success { <br>
+color: green; <br>
+background-color: rgb(0 255 0/ 0.1); <br>
+border: 1px solid green; <br>
+}
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    Here the two classes that we will add to the input fields. <br>
+                    They will change the border color and the background color of the input field, as well as the text
+                    color. <br>
+                </div>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">if (EmailValue === "") { <br>
+setErrorFor(Email, "Email cannot be blank"); <br>
+} else if (!isEmail(EmailValue)) { <br>
+setErrorFor(Email, "Email is not valid"); <br>
+} else { <br>
+setSuccessFor(Email); <br>
+}
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    In the case of the email and the phone number, we will use a regular expression to check if the
+                    input is
+                    valid. <br>
+                    These regular expressions are implemented with the isEmail() function and isPhone_Number()
+                    function. <br>
+                    <ul>
+                        <li>These functions will return true if the input is valid and false otherwise.</li>
+                        <li>They are implemented below.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-content">
+                The .test() method is a built-in method that will return true if the input matches the regular
+                expression and false otherwise. <br>
+                Here, we are using regular expressions to check the email and the phone number. <br>
+                The regular expression for the email is /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+                and for the phone number is /^([0]{1}[5-7]{1}[0-9]{8})$/. <br>
+                In the case of the email, we are checking if it contains a-z, A-Z, 0-9, _, -, and . Then an @, then
+                the same thing, then a dot and 2 to 5 characters. <br>
+                The /^ and $/ are used to indicate the beginning and the end of the string. <br>
+                The parantheses are used to group the characters. <br>
+                The brackets are used to indicate a range of characters. <br>
+                The + is used to indicate that the previous character can be repeated one or more times. <br>
+                The {2,5} is used to indicate that the previous character can be repeated 2 to 5 times. <br>
+                In the case of the phone number, we are checking if it starts with 05, 06, or 07 and has 8 digits
+                after that. <br>
+            </div>
+            <div class="code-example">
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">JS</h2>
+                <div class="code-example"><pre><code class="language-javascript">function isEmail(Email) { <br>
+return /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/.test( Email ); <br>
+} <br>
+
+function isPhone_Number(Phone_Number) { <br>
+return /^([0]{1}[5-7]{1}[0-9]{8})$/.test(Phone_Number); <br>
+}
+                    </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+                <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Explanation</h2>
+                <div class="demo-output">
+                    These functions will return true if the input is valid and false otherwise. <br>
+                    They use regular expressions to check the input. <br>
+                    .test() is a built-in method that will return true if the input matches the regular expression and
+                    false
+                    otherwise. <br>
+                </div>
+            </div>
+        </section>
+    
+    &lt;!-- Practice Code Editor Button --&gt;
+    &lt;div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;"&gt;
+      &lt;h2 style="color: white; margin-bottom: 15px;"&gt;&lt;i class="fa-solid fa-laptop-code"&gt;&lt;/i&gt; Ready to Practice?&lt;/h2&gt;
+      &lt;p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;"&gt;Try out the concepts you've learned in our interactive code editor&lt;/p&gt;
+      &lt;a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 40px; font-size: 1.1rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; font-weight: 500;"&gt;
+        &lt;i class="fa-solid fa-code"&gt;&lt;/i&gt;
+        &lt;span&gt;Open Code Editor&lt;/span&gt;
+        &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+        <!-- Navigation Buttons -->
+        <div class="lesson-navigation">
+          <a href="JavaScript_Events.html" class="nav-btn prev-btn">
+            <i class="fas fa-arrow-left"></i> Previous: JavaScript Events
+          </a>
+          <a href="AJAX.html" class="nav-btn next-btn">
+            Next: AJAX & Fetch API <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+</body>
+
+</html>
+

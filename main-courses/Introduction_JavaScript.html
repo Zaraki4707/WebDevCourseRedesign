@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to JavaScript - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="intro-javascript">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Fundamentals</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>Intro to JavaScript</span>
+          </div>
+          <h1>Introduction to JavaScript</h1>
+          <p class="lesson-desc">
+            Unlock the power of the web by learning the language that makes it interactive and dynamic.
+          </p>
+        </div>
+      </div>
+
+      <!-- Lesson Content -->
+      <div class="lesson-content">
+      <!-- Script Tag Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <i class="fas fa-tags"></i>
+          <h2>The Script Tag</h2>
+        </div>
+        <div class="info-card">
+          <p>
+            To include JavaScript in your web page, you use the <code>&lt;script&gt;</code> tag. It can be placed in either the <code>&lt;head&gt;</code> or the <code>&lt;body&gt;</code> section.
+          </p>
+          <div class="code-example">
+            <pre><code class="language-html">&lt;!-- Inline Script --&gt;
+&lt;script&gt;
+  console.log("Hello World!");
+&lt;/script&gt;
+
+&lt;!-- External Script --&gt;
+&lt;script src="js/script.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+    <section id="Variables">
+      <h2 class="Section_Title">I. Variables</h2>
+      <div class="text-content">
+        <ul>
+          <li>A variable may include only the letters a-z, A-Z, 0-9, the $ symbol, and the
+            underscore (_).</li>
+          <li>No other characters, such as spaces or punctuation, are allowed in a variable
+            name.</li>
+          <li>The first character of a variable name can be only a-z, A-Z, $, or _ (no numbers).</li>
+          <li>Names are case-sensitive. Count, count, and COUNT are all different variables.</li>
+          <li>There is no set limit on variable name lengths.</li>
+        </ul>
+      </div>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Variable declaration</h2>
+      <div class="text-content">
+        <ol>
+          <li><strong>var: </strong> Used to initialize to value, redeclared and its value can be reassigned.
+            <pre><code class="language-javascript">
+      var age = 55;
+      var Teacher_Name = "Karim";
+      var isStudent = false;
+      console.log(Teacher_Name + " is " + age + " years old");
+    </code></pre>
+          </li>
+          <li><strong>let: </strong> Similar to var but is block scoped.
+            <pre><code class="language-javascript">
+{
+let age = 18;
+let Student_Name = "Amel";
+let isStudent = false;
+console.log("Inside the block: "+Student_Name + " is " + age + " years old");
+}
+console.log("Outside the block: "+Student_Name + " is " + age + " years old");
+    </code></pre>
+          </li>
+          <li><strong>const: </strong> Used to declare a fixed value that cannot be changed.
+            <pre><code class="language-javascript">
+              const Pi = 3.14;
+              Pi = 3.14159; // This will throw an error
+              </code></pre>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <section id="Datatypes">
+      <h2 class="Section_Title">II. Datatypes</h2>
+      <ol>
+        <li>
+          <strong>Number</strong>
+          <pre><code class="language-javascript">
+            var WebDev_Grade = 0.000001;
+          </code></pre>
+        </li>
+        <li>
+          <strong>String</strong>
+          <pre><code class="language-javascript">
+            var Student_Name = "Ahmed";
+            var Student_Name2 = 'Ahmed';
+          </code></pre>
+        </li>
+        <li>
+          <strong>Boolean</strong>
+          <pre><code class="language-javascript">
+            var isStudent = true;
+          </code></pre>
+        </li>
+        <li>
+          <strong>Null</strong>
+          <pre><code class="language-javascript">
+            var x = null;
+            console.log("The value of x is: " + x);
+            // Output: The value of x is: null
+          </code></pre>
+        </li>
+        <li>
+          <strong>Undefined</strong>
+          <pre><code class="language-javascript">
+            var y;
+            let z = undefined;
+            console.log("The value of y is: " + y);
+            // Output: The value of y is: undefined
+            console.log("The value of z is: " + z);
+            // Output: The value of z is: undefined
+          </code></pre>
+        </li>
+        <li>
+          <strong>Object</strong>
+          <pre><code class="language-javascript">
+            var Student = {
+              Name: "Ahmed",
+              Age: 20,
+              isStudent: true
+            };
+            console.log(Student.Name + " is " + Student.Age + " years old");
+          </code></pre>
+        </li>
+      </ol>
+    </section>
+    <section id="Operators">
+      <h2 class="Section_Title">III. Operators</h2>
+      <ol>
+        <li>
+          <strong>Arithmetic</strong>
+          <pre><code class="language-javascript">
+            var x = 5;
+            var y = 2;
+            console.log(x + y); // Addition
+            console.log(x - y); // Subtraction
+            console.log(x * y); // Multiplication
+            console.log(x / y); // Division
+            console.log(x % y); // Modulus
+            console.log(++x); // Increment
+            console.log(x++); // It will print 6, beacuse it will increment after printing
+            console.log(--x); // Decrement
+            console.log(x--); // It will print 6, beacuse it will decrement after printing
+          </code></pre>
+        </li>
+        <li>
+          <strong>Comparison</strong>
+          <pre><code class="language-javascript">
+            var x = 5;
+            var x2 = "5";
+            var y = 2;
+            console.log("Is x equal to y: ", x == y); // Equal to
+            console.log("Is x equal to x2: ", x == x2); // Equal to
+            console.log("x is not equal to y: ", x != y); // Not equal to
+            console.log("Is x greater than y: ", x > y); // Greater than
+            console.log("Is x less than y: ", x &lt; y); // Less than
+            console.log("Is x greater than or equal to y: ", x >= y); // Greater than or equal to
+            console.log("Is x less than or equal to y: ", x &lt;= y); // Less than or equal to
+            console.log("Is x equal to (and of the same type) y: ", x === y); // Equal to (and of the same type)
+            console.log("Is x equal to (and of the same type) x2: ", x === x2); // Equal to (and of the same type)
+            console.log("x is not equal to (and of the same type) y: ", x !== y); // Not equal to (and of the same type)
+            console.log("x is not equal to (and of the same type) x2: ", x !== x2); // Not equal to (and of the same type)
+          </code></pre>
+        </li>
+        <li>
+          <strong>Bitwise</strong>
+          <pre><code class="language-javascript">
+            var x = 5; // 101
+            var y = 2; // 010
+            var z = -1; // 111
+            console.log("x Bitwise AND y: ", x & y); // It will return 0
+            console.log("x Bitwise OR y: ", x | y); // It will return 7
+            console.log("x Bitwise XOR y: ", x ^ y); // It will return 7
+            console.log("Bitwise NOT x: ", ~x); // It will return -6
+            console.log("Bitwise Left Shift x by 1: ", x << 1); // It will return 10
+            console.log("Bitwise Right Shift x by 1: ", x >> 1); // It will return 2
+            console.log("Bitwise Right Shift x with Zero", z >>> 1); // It will return 2147483647
+          </code></pre>
+        </li>
+        <li>
+          <strong>Logical</strong>
+          <pre><code class="language-javascript">
+            var x = true;
+            var y = false;
+            console.log("x AND y: ", x && y); // And
+            console.log("x OR y: ", x || y); // Or
+            console.log("NOT x: ", !x); // Not
+          </code></pre>
+        </li>
+        <li>
+          <strong>Assignment</strong>
+          <pre><code class="language-javascript">
+            var x = 5;
+            x += 2; // x = x + 2
+            console.log(x); // It will print 7
+            x -= 2; // x = x - 2
+            console.log(x); // It will print 5
+            x *= 2; // x = x * 2
+            console.log(x); // It will print 10
+            x /= 2; // x = x / 2
+            console.log(x); // It will print 5
+            x %= 2; // x = x % 2
+            console.log(x); // It will print 1
+          </code></pre>
+        </li>
+      </ol>
+    </section>
+    <section id="Scope">
+      <h2 class="Section_Title">IV. Scope</h2>
+      <ol>
+        <li>
+          <strong>Global Scope</strong>
+          <div class="Definition">
+            The variables in global scope can be accessed from anywhere in the program. <br><br>
+            Global variables are ones defined outside of any functions (or defined within functions but without the
+            var keyword).
+          </div>
+          <pre><code class="language-javascript">
+            var x = 5;
+            let y = 10;
+            function myFunction() {
+              console.log(x);
+              console.log(y);
+              // global scope variable
+              y = 7;
+            }
+            myFunction(); // It will print 5
+            console.log(y); // It will print 7
+          </code></pre>
+        </li>
+        <li>
+          <strong>Local Scope</strong>
+          <div class="Definition">
+            Variables declared inside a function is inside the function scope also known as local scope. <br><br>
+            Parameters passed to a function automatically have local scope. <br><br>
+            To define a local variable that has scope only within the current function, and has not been passed as a
+            parameter, use the var keyword.
+          </div>
+          <pre><code class="language-javascript">
+            function myFunction() {
+              var x = 5;
+              console.log(x);
+            }
+            myFunction(); // It will print 5
+            console.log(x); // It will throw an error
+          </code></pre>
+        </li>
+        <li>
+          <strong>Block Scope</strong>
+          <div class="Definition">
+            Block scope restricts the access of a variable outside its scope
+          </div>
+          <pre><code class="language-javascript">
+            {
+              let x = 5;
+              var y = 10;
+              console.log(x);
+              console.log(y);
+            }
+            console.log(y); // It will print 10
+            console.log(x); // It will throw an error
+          </code></pre>
+        </li>
+      </ol>
+      <div class="text-content">
+        <p>
+          With the let keyword you cannot redeclare a variable once you have done so with let. <br><br>
+          let keyword is either globally or block scoped, and variables are not initialized. <br><br>
+          Any variable assigned using let has scope either within the entire document if declared outside of any block,
+          or, if declared within a block bounded by {} (which includes functions), its scope is limited to that block
+          (and any nested sub-blocks).
+        </p>
+        <p>
+          If you use the const keyword to declare the variable and assign its value, any attempt to change the value
+          later will be disallowed. <br><br>
+          const declarations are also block scoped (within {} sections and any sub-blocks) <br><br>
+        </p>
+        <p>
+          In summary: var has global or function scope, and let and const have global or
+          block scope. Both var and let can be declared without being initialized,
+          while const must be initialized during declaration. The var keyword can be reused to
+          re-declare a var variable, but let and const cannot. Finally, const can neither be
+          redeclared nor reassigned.
+        </p>
+      </div>
+    </section>
+    <section id="Functions">
+      <h2 class="Section_Title">V. Functions</h2>
+      <div class="text-content">
+        <p>
+          The general syntax for a function is:
+        </p>
+        <pre><code class="language-javascript">
+          function function_name([parameter [, ...]])
+          { 
+            &nbsp; statements
+          }
+        </code></pre>
+        <p>
+        <ul>
+          <li>A definition starts with the word <strong>function</strong>.</li>
+          <li>A name follows that must start with a letter or underscore, followed by any number of letters, digits,
+            dollar signs, or underscores.</li>
+          <li>The parentheses are required.</li>
+          <li>One or more parameters, separated by commas, are optional</li>
+        </ul>
+        Function names are case-sensitive.
+        </p>
+        <p>
+          The opening curly brace starts the statements that will execute when you call the
+          function; a matching curly brace must close it. These statements may include one or
+          more return statements, which force the function to cease execution and return to
+          the calling code. If a value is attached to the return statement, the calling code can
+          retrieve it.
+        </p>
+      </div>
+    </section>
+    <section id="Arrays">
+      <h2 class="Section_Title">VI. Arrays</h2>
+      <div class="text-content">
+        <p>
+          To create a new array, use the following syntax:
+        <pre><code class="language-javascript">
+            // arrayname = new Array()
+            Teachers = new Array("Karim", "Kamel", "Ahmed", "Khaled");
+            console.log(Teachers[2]); // It will print Ahmed
+          </code></pre>
+        Or you can use the shorthand form, as follows:
+        <pre><code class="language-javascript">
+          Modules = [];
+          Modules[0] = "Web Development";
+          Modules[1] = "Mobile Development";
+          Modules[2] = "Data Science";
+          Modules[3] = "AI";
+          Modules[4] = "Cyber Security";
+          console.log(Modules[1]); // It will print Mobile Development
+          </code></pre>
+        You can also create an array together with some initial elements by using the Array keyword, like this:
+        <pre><code class="language-javascript">
+          Team_G_12_1 = Array("Omar", "Kamel", "Manel", "Nour", "Hana", "Sami", "Sara");
+        </code></pre>
+        There is nothing stopping you from adding more elements afterward as well. <br> <br>
+        Arrays can hold any type of data, including numbers, strings, and objects. We can even have arrays with multiple
+        types of data.
+        </p>
+      </div>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Popular methods for arrays</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Method</strong></td>
+            <td><strong>Description</strong></td>
+          </tr>
+          <tr>
+            <td><strong>push()</strong></td>
+            <td>Adds a new element at the very end of an array.</td>
+          </tr>
+          <tr>
+            <td><strong>pop()</strong></td>
+            <td>Removes the last element of an array.</td>
+          </tr>
+          <tr>
+            <td><strong>concat()</strong>
+            </td>
+            <td>Joins various arrays into a single array.</td>
+          </tr>
+          <tr>
+            <td><strong>shift()</strong></td>
+            <td>Removes the first element of an array</td>
+          </tr>
+          <tr>
+            <td><strong>unShift()</strong>
+            </td>
+            <td>Adds new elements at the beginning of the array</td>
+          </tr>
+          <tr>
+            <td><strong>reverse()</strong>
+            </td>
+            <td>Reverses the order of the elements in an array.</td>
+          </tr>
+          <tr>
+            <td><strong>slice()</strong></td>
+            <td>Pulls a copy of a part of an array into a new array.</td>
+          </tr>
+          <tr>
+            <td><strong>splice()</strong>
+            </td>
+            <td>Adds elements in a particular way and position.</td>
+          </tr>
+          <tr>
+            <td><strong>toString()</strong>
+            </td>
+            <td>Converts the array elements into strings.</td>
+          </tr>
+          <tr>
+            <td><strong>valueOf()</strong>
+            </td>
+            <td>Returns the primitive value of the given object.</td>
+          </tr>
+          <tr>
+            <td><strong>indexOf()</strong>
+            </td>
+            <td>Returns the first index at which a given element is found.</td>
+          </tr>
+          <tr>
+            <td><strong>lastIndexOf()</strong>
+            </td>
+            <td>Returns the final index at which a given element appears.</td>
+          </tr>
+          <tr>
+            <td><strong>join()</strong></td>
+            <td>Combines elements of an array into one single string and then returns it</td>
+          </tr>
+          <tr>
+            <td><strong>sort()</strong></td>
+            <td>Sorts the array elements based on some condition.</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+    <section id="Loops">
+      <h2 class="Section_Title">VII. Loops</h2>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">For loop</h2>
+      <pre><code class="language-javascript">
+        for (let i = 0; i &lt; 4; i++) {
+          console.log(Teachers[i]);
+        }
+                    </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">While loop</h2>
+      <pre><code class="language-javascript">
+        while (students.length > 0) {
+          console.log(students.pop());
+        }
+        </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Do...While loop</h2>
+      <pre><code class="language-javascript">
+        i = 0;
+        do {
+          console.log(Modules[i]);
+          i++;
+        } while (i &lt; Modules.length);
+          </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">For...in</h2>
+      <pre><code class="language-javascript">
+        for (let index in Teachers) {
+          console.log(Teachers[index]);
+        }
+          </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Break</h2>
+      <pre><code class="language-javascript">
+        for (let index in Modules) {
+          if (index == 2) break;
+          console.log(Modules[index]);
+        }
+        </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Continue</h2>
+      <pre><code class="language-javascript">
+        for (let index in Modules) {
+          if (index == 2) continue;
+          console.log(Modules[index]);
+        }
+        </code></pre>
+    </section>
+    <section id="Conditionals">
+      <h2 class="Section_Title">VIII. Conditionals</h2>
+      <div class="text-content">
+        <p>
+          There are three types of nonlooping conditionals: the if statement, the switch statement, and the ? operator.
+        </p>
+      </div>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">if...else</h2>
+      <div class="text-content">
+        The code within such a statement is executed only if the given expression evaluates to true. <br>
+        When a condition has not been met, you can execute an alternative by using an else statement. <br>
+        JavaScript has no elseif statement.
+      </div>
+      <pre><code class="language-javascript">
+var Grade = 5;
+if (Grade >= 10) {
+  console.log("You passed the exam");
+} else {
+  console.log("You failed the exam");
+}
+      </code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">switch</h2>
+      <div class="text-content">
+        The switch statement is useful when one variable or the result of an expression can have multiple
+        values
+        <br>
+        and you want to perform a different function for each value. <br>
+        The break command allows your code to break out of the switch statement once a condition has been <br>
+        satisfied. <br>
+        When no condition is satisfied, you can specify a default action for a switch statement <br>
+        by using the default keyword.
+      </div>
+      <pre><code class="language-javascript">
+        var day = 3;
+switch (day) {
+  case 1:
+    console.log("Sunday");
+    break;
+  case 2:
+    console.log("Monday");
+    break;
+  case 3:
+    console.log("Tuesday");
+    break;
+  case 4:
+    console.log("Wednesday");
+    break;
+  case 5:
+    console.log("Thursday");
+    break;
+  case 6:
+    console.log("Friday");
+    break;
+  case 7:
+    console.log("Saturday");
+    break;
+  default:
+    console.log("Invalid Day");
+}
+</code></pre>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">The ? Operator</h2>
+      <div class="text-content">
+        The ternary operator (?), combined with the : character, provides a quick way of
+        doing if...else tests. <br> With it you can write an expression to evaluate and then follow
+        it with a ? symbol and the code to execute if the expression is true. <br> After that,
+        place a : and the code to execute if the expression evaluates to false.
+      </div>
+      <pre><code class="language-javascript">
+        var Pass = (Exam >= 10) ? true : false;
+      </code></pre>
+    </section>
+
+    <section id="Strings">
+      <h2 class="Section_Title">IX. Strings</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Methods</strong></td>
+            <td><strong>Description</strong></td>
+          </tr>
+          <tr>
+            <td><strong>concat()</strong>
+            </td>
+            <td>Used for concatenating multiple strings into a single string.</td>
+          </tr>
+          <tr>
+            <td><strong>match()</strong></td>
+            <td>Used for finding matche of a string against a provided pattern.</td>
+          </tr>
+          <tr>
+            <td><strong>replace()</strong>
+            </td>
+            <td>Used for finding and replacing a given text in string.</td>
+          </tr>
+          <tr>
+            <td><strong>substr()</strong></td>
+            <td>Used to extract length characters from a given string.</td>
+          </tr>
+          <tr>
+            <td><strong>slice()</strong></td>
+            <td>Used for extracting an area of the string and returs it</td>
+          </tr>
+          <tr>
+            <td><strong>lastIndexOf()</strong>
+            </td>
+            <td>Used to return the index (position) of the last occurrence of a specified value.</td>
+          </tr>
+          <tr>
+            <td><strong>charAt()</strong>
+            </td>
+            <td>Used for returning the character at a particular index of a string</td>
+          </tr>
+          <tr>
+            <td><strong>valueOf()</strong></td>
+            <td>Used for returning the primitive value of a string object.</td>
+          </tr>
+          <tr>
+            <td><strong>split()</strong>
+            </td>
+            <td>Used for splitting a string object into an array of strings.</td>
+          </tr>
+          <tr>
+            <td><strong>toUpperCase()</strong>
+            </td>
+            <td>Used for converting strings to upper case.</td>
+          </tr>
+          <tr>
+            <td><strong>toLoweCase()</strong>
+            </td>
+            <td>Used for converting strings to lower case.</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+    <section id="Math">
+      <h2 class="Section_Title">X. Numbers and maths</h2>
+      <table>
+        <tbody>
+          <tr>
+            <td><strong>Method</strong></td>
+            <td><strong>Description</strong></td>
+          </tr>
+          <tr>
+            <td><strong>max(x,y,z…n)</strong>
+            </td>
+            <td>Returns the highest-valued number</td>
+          </tr>
+          <tr>
+            <td><strong>min(x,y,z…n)</strong>
+            </td>
+            <td>Returns the lowest-valued number</td>
+          </tr>
+          <tr>
+            <td><strong>exp(x)</strong></td>
+            <td>Returns x's exponential value.</td>
+          </tr>
+          <tr>
+            <td><strong>log(x)</strong></td>
+            <td>Returns the natural logarithm (base E) of x.</td>
+          </tr>
+          <tr>
+            <td><strong>sqrt(x)</strong></td>
+            <td>Returns x's square root value.</td>
+          </tr>
+          <tr>
+            <td><strong>pow(x,y)</strong></td>
+            <td>Returns the value of x to the power of y</td>
+          </tr>
+          <tr>
+            <td><strong>round(x)</strong>
+            </td>
+            <td>Rounds the value of x to the nearest integer</td>
+          </tr>
+          <tr>
+            <td><strong>sin(x)</strong></td>
+            <td>Finds the sine value of x(x is in radians).</td>
+          </tr>
+          <tr>
+            <td><strong>tan(x)</strong></td>
+            <td>Finds the angle's(x) tangent value.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section id="Files">
+      <h2 class="Section_Title">XI. Files</h2>
+      <div class="text-content">
+        <p>
+          JavaScript can read and write files using the File API. <br><br>
+          The File API makes it possible to access the file system on the client side. <br><br>
+          The File API includes a FileList object, which represents the file list of files selected with the <br>
+          <font color="blue">&lt;input type="file"&gt;</font> element. <br><br>
+          The FileList object is returned by the <font color="blue">files</font> property of the <font color="blue">
+            HTMLInputElement</font> object.
+        </p>
+      </div>
+      <h2 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">Opening files</h2>
+      <div class="text-content">
+        <p>
+          To open a file, use the <font color="blue">FileReader</font> object. <br><br>
+          The following example demonstrates how to open a file and read its content into an HTML element.
+        </p>
+      </div>
+      <pre><code class="language-javascript">
+        function openFile(event) {
+          var input = event.target;
+          var reader = new FileReader();
+          reader.onload = function () {
+            var text = reader.result;
+            var node = document.getElementById('output');
+            node.innerText = text;
+          };
+          reader.readAsText(input.files[0]);
+        }
+      </code></pre>
+
+    </section>
+  
+    &lt;!-- Practice Code Editor Button --&gt;
+    &lt;div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;"&gt;
+      &lt;h2 style="color: white; margin-bottom: 15px;"&gt;&lt;i class="fa-solid fa-laptop-code"&gt;&lt;/i&gt; Ready to Practice?&lt;/h2&gt;
+      &lt;p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;"&gt;Try out the concepts you've learned in our interactive code editor&lt;/p&gt;
+      &lt;a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 40px; font-size: 1.1rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; font-weight: 500;"&gt;
+        &lt;i class="fa-solid fa-code"&gt;&lt;/i&gt;
+        &lt;span&gt;Open Code Editor&lt;/span&gt;
+        &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+      <!-- Navigation Buttons -->
+      <div class="lesson-navigation">
+        <a href="ELEMENT_POSITIONING.html" class="nav-btn prev-btn">
+          <i class="fas fa-arrow-left"></i>
+          <div class="btn-text">
+            <span>Previous</span>
+            <p>Element Positioning</p>
+          </div>
+        </a>
+        <a href="DOM.html" class="nav-btn next-btn">
+          <div class="btn-text">
+            <span>Next</span>
+            <p>DOM Manipulation</p>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Fundamentals - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="css-fundamentals">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Fundamentals</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>CSS Fundamentals</span>
+          </div>
+          <h1>CSS Fundamentals</h1>
+          <p class="lesson-desc">
+            Master the basics of Cascading Style Sheets to bring your HTML to life with color, layout, and style.
+          </p>
+        </div>
+      </div>
+
+      <!-- Lesson Content -->
+      <div class="lesson-content">
+    <section>
+      <h2 class="Section_Title">Introduction</h2>
+      <div class="text-content">
+        <p>
+          CSS (Cascading Style Sheets) is a language used to style the visual presentation of a web page. <br><br>
+          It is used to control the layout of multiple web pages all at once. <br><br>
+          CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript. <br><br>
+          CSS is designed to enable the separation of presentation and content, including layout, colors, and fonts.
+          <br><br>
+          This separation can improve content accessibility, provide more flexibility and control in the specification
+          of presentation characteristics, enable multiple web pages to share formatting by specifying the relevant CSS
+          in a separate .css file, and reduce complexity and repetition in the structural content. <br><br>
+          To use CSS you can either use an external stylesheet, an internal stylesheet, or inline styles.
+        </p>
+      </div>
+        <div class="code-example">
+          <div class="example-header">
+            <h3>HTML Setup</h3>
+            <span class="example-badge">HTML</span>
+          </div>
+          <pre><code class="language-html">&lt;h1&gt;OR&lt;/h1&gt;
+&lt;style type="text/css"&gt;
+body
+{
+font-family: arial;
+background-color: rgb(185,179,175);
+}
+h1
+{
+color: rgb(255,255,255);
+}
+&lt;/style&gt;</code></pre>
+        </div>
+        <div style="text-align: center; margin: 15px 0;">
+          <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+            <i class="fa-solid fa-code"></i>
+            <span>Try This Code</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+    <section class="content-section">
+      <h2><i class="fas fa-mouse-pointer"></i> I. CSS Selectors</h2>
+      <div class="text-content">
+        <h3>1. Basic selectors</h3>
+        <p>
+          CSS selectors are used to target specific elements on an HTML page.
+        </p>
+        <p>
+          There are several types of selectors, including tag selectors, class selectors, ID selectors, and universal
+          selectors.
+        </p>
+        <p>
+          Tag selectors target elements based on their tag name. Class selectors target elements based on their class attribute. 
+          ID selectors target elements based on their ID attribute, and universal selectors target all elements on a page.
+        </p>
+      </div>
+
+      <div class="code-example">
+        <div class="example-header">
+          <h3>HTML Examples</h3>
+          <span class="example-badge">HTML</span>
+        </div>
+        <pre><code class="language-html">&lt;h4&gt;tagname—Type selector&lt;/h4&gt;
+&lt;h4 class="My_class"&gt;Class selector&lt;/h4&gt;
+&lt;h4 id="My_ID"&gt;ID selector&lt;/h4&gt;
+&lt;h4&gt;* Universal selector&lt;/h4&gt;</code></pre>
+      </div>
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">h4 { color: #8c1515; } 
+
+.My_class{ color:green; } 
+
+#My_ID { color: blue; } 
+
+*{ color: purple;}</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <h4>
+            tagname—Type selector or tag selector. This selector matches the
+            tag name of the elements to target.
+          </h4>
+          <h4 class="My_class">
+            Class selector. Targets elements that have the specified class
+            name as part of their class attribute.
+          </h4>
+          <h4 id="My_ID">
+            ID selector: Targets the element with the specified ID attribute.
+          </h4>
+          <h4>* Universal selector: Targets all elements.</h4>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2. Combinators</h3>
+      <div class="text-content">
+        <ol>
+          <li>
+            <h4>Child combinator (>):</h4>
+            Targets elements that are a direct descendant of another
+            element. This means the targeted elements are the immediate children
+            of the specified parent element. Descendants beyond the immediate
+            children are not targeted.
+          </li>
+          <li>
+            <h4>Adjacent sibling combinator (+):</h4>
+            Targets elements that immediately follow another. This means the
+            targeted elements are siblings that appear directly after the
+            specified element. Siblings that appear before the indicated element
+            are not targeted. Note that the adjacent sibling combinator only
+            targets the first sibling that appears after the specified element.
+          </li>
+          <li>
+            <h4>General sibling combinator (~):</h4>
+            Targets all sibling elements following a specified element. Note
+            this doesn't target siblings that appear before the indicated
+            element.
+          </li>
+        </ol>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="My_Div"&gt;
+&lt;h4&gt;Syllabus&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt; 
+&lt;h4&gt;Chapter 1&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Section 1.1
+&lt;/li&gt;
+&lt;li&gt;Section 1.2
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Lab 1&lt;/h4&gt;
+&lt;h4&gt;Test 1&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt; 
+&lt;h4&gt;Chapter 2&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Section 2.1
+&lt;/li&gt;
+&lt;li&gt;Section 2.2
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Lab 2&lt;/h4&gt;
+&lt;h4&gt;Test 2&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt; 
+&lt;h4&gt;Chapter 3&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Section 3.1
+&lt;/li&gt;
+&lt;li&gt;Section 3.2
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Lab 3&lt;/h4&gt;
+&lt;h4&gt;Test 3&lt;/h4&gt;
+&lt;/li&gt;
+&lt;li&gt; 
+&lt;h4&gt;Chapter 4&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;Section 4.1
+&lt;/li&gt;
+&lt;li&gt;Section 4.2
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4&gt;Lab 4&lt;/h4&gt;
+&lt;h4&gt;Test 4&lt;/h4&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.My_Div > h4 
+          {<br />
+          color: #8c1515;<br />
+          font-size: 20px; <br />
+          font-weight: bold;<br />
+          } <br /><br />
+          .My_Div li {<br />
+          color: black;<br />
+          } <br /><br />
+          ol + h4 {<br />
+          color: #000000;<br />
+          font-size: 20px; <br />font-weight: bold;<br />
+          }<br /><br />
+          ol ~ h4 {<br />
+          text-decoration: underline;<br />
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="My_Div">
+            <h4>Syllabus</h4>
+            <ol>
+              <li>
+                <h4>Chapter 1</h4>
+                <ol>
+                  <li>Section 1.1</li>
+                  <li>Section 1.2</li>
+                </ol>
+                <h4>Lab 1</h4>
+                <h4>Test 1</h4>
+              </li>
+              <li>
+                <h4>Chapter 2</h4>
+                <ol>
+                  <li>Section 2.1</li>
+                  <li>Section 2.2</li>
+                </ol>
+                <h4>Lab 2</h4>
+                <h4>Test 2</h4>
+              </li>
+              <li>
+                <h4>Chapter 3</h4>
+                <ol>
+                  <li>Section 3.1</li>
+                  <li>Section 3.2</li>
+                </ol>
+                <h4>Lab 3</h4>
+                <h4>Test 3</h4>
+              </li>
+              <li>
+                <h4>Chapter 4</h4>
+                <ol>
+                  <li>Section 4.1</li>
+                  <li>Section 4.2</li>
+                </ol>
+                <h4>Lab 4</h4>
+                <h4>Test 4</h4>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">3. Pseudo-class selectors</h3>
+      <div class="text-content">
+        <ol>
+          <li>
+            <h4>:first-child</h4>
+            Targets elements that are the first element within their parent
+            element. This selector is useful for applying styles to the first
+            element in a list or the first paragraph in an article. It can also
+            be used to apply styles to the first element in a row of elements. The
+            :first-child selector is a pseudo-class, which means it is used to
+            define a special state of an element. In this case, the state is that
+            the element is the first child of its parent.
+          </li>
+          <li>
+            <h4>:last-child</h4>
+            Targets elements that are the last element within their parent
+            element. This selector is useful for applying styles to the last
+            element in a list or the last paragraph in an article. It can also
+            be used to apply styles to the last element in a row of elements.
+          </li>
+          <li>
+            <h4>:only-child</h4>
+            Targets elements that are the only element within their parent
+            element (no siblings). This selector is useful for applying styles
+            to elements that are the only child of their parent.
+          </li>
+          <li>
+            <h4>:nth-child(an+b)</h4>
+            Targets elements based upon their position among their siblings.
+            The formula an+b is used to determine which elements to target.
+            The formula is used to determine the position of the element in the
+            list of siblings.
+          </li>
+          <li>
+            <h4>:nth-last-child(an+b)</h4>
+            Similar to :nth-child(), but instead of counting from the first element, it counts
+            from the last element. This selector is useful for applying styles to elements
+            based on their position in a list of siblings, counting from the last element. The
+            formula an+b is used to determine which elements to target.
+          </li>
+          <li>
+            <h4>:first-of-type</h4>
+            It considers an element's numerical position only among other children
+            with the same tag name. This selector is useful for applying styles to the
+            first element of a specific type within a parent element.
+          </li>
+          <li>
+            <h4>:last-of-type</h4>
+            Targets the last child element of each type. This is the opposite of
+            :first-of-type. It is useful for applying styles to the last element of a
+            specific type within a parent element.
+          </li>
+          <li>
+            <h4>:only-of-type</h4>
+            Targets elements that are the only child of their type. Meaning they have
+            no siblings with the same tag name. This selector is useful for applying
+            styles to elements that are the only child of their type within a parent
+            element. It is similar to :only-child, but it only targets elements of a
+            specific type.
+          </li>
+          <li>
+            <h4>:nth-of-type(an+b)</h4>
+            Targets elements of their type based on their numerical order and the specified formula.
+            The formula an+b specifies which elements to target based on their position among
+            their siblings. This selector is useful for applying styles to elements based on their
+            position in a list of siblings of the same type.
+          </li>
+          <li>
+            <h4>:nth-last-of-type(an+b)</h4>
+            Targets elements of their type based on a specified formula, counting from the last of those elements
+            backward. This is the same as :nth-of-type(), but it counts from the last element of the specified type.
+          </li>
+          <li>
+            <h4>:not(selector)</h4>
+            Targets elements that don't match the selector within the parentheses.
+            This selector is useful for applying styles to all the elements except those that match the selector.
+          </li>
+          <li>
+            <h4>:empty</h4>
+            Targets elements that have no children. Beware that this doesn't target
+            an element that contains whitespace. It only targets elements that have no
+            children at all.
+          </li>
+          <li>
+            <h4>:focus</h4>
+            Targets elements that have received focus, whether from a mouse
+            click, screen tap, or Tab key navigation. For example, when you click
+            on a text input field, it receives focus, and you can type into it.
+          </li>
+          <li>
+            <h4>:hover</h4>
+            Targets elements while the mouse cursor hovers over them.
+            For example, you might change
+            the background color of a button when the user hovers over it.
+          </li>
+          <li>
+            <h4>:root</h4>
+            Targets the root element of the document. In HTML, this is the &lt;html&gt;
+            element. But CSS can be applied to other XML or XML-like documents, such as
+            SVG; in which case, this selector works more generically.
+          </li>
+        </ol>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="Squares"&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;div&gt;
+          &lt;/div&gt;<br>
+          &lt;/div&gt;<br>
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.Squares :first-child <br>
+          { <br>
+          background-color: #8c1515;<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Table_Div">
+            <div class="Row_Div">
+              <p>:first-child</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:last-child</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:nth-child(2n)</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:nth-child(n+2)</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:nth-child(-n+2)</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:nth-last-child(n+2)</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:nth-last-child(-n + 2)</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:only-child</p>
+              <div class="Squares">
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h3:first-of-type</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h3:last-of-type</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h5:only-of-type</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h1:nth-of-type(2)</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h3:nth-last-of-type(2)</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:not(h3)</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>h3:empty</p>
+              <div class="Squares">
+                <h1>H1</h1>
+                <h1>H1</h1>
+                <h3>H3</h3>
+                <h3>H3</h3>
+                <h3></h3>
+                <h5>H5</h5>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:hover</p>
+              <div class="Squares">
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+                <div class="Square"></div>
+              </div>
+            </div>
+            <div class="Row_Div">
+              <p>:focus</p>
+              <div class="Squares">
+                <label for="Input_1">1</label>
+                <input type="text" id="Input_1" class="Input"></input>
+                <label for="Input_2">2</label>
+                <input type="text" id="Input_2" class="Input"></input>
+                <label for="Input_3">3</label>
+                <input type="text" id="Input_3" class="Input"></input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">4. Pseudo-element selectors</h3>
+      <div class="text-content">
+        <p>
+          Pseudo-elements are similar to pseudo-classes, but instead of selecting elements with a special state, they
+          target a certain part of the document that doesn't directly correspond to a particular element in the HTML.
+          They may target only portions of an element or even inject content into the page where the markup defines
+          none. <br><br>
+          These selectors begin with a double-colon (::), though most browsers also support a single-colon syntax for
+          backward-compatibility reasons.
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;h1&gt;
+          Nothing was there before.
+          &lt;/h1&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">h1::before
+          { <br>
+          content: "Before";<br>
+          color: #8c1515;<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Table_Div">
+            <div class="Row_Div">
+              <p>::before</p>
+              <h1>Nothing was there before.</h1>
+            </div>
+            <div class="Row_Div">
+              <p>::after</p>
+              <h1>Nothing was there after.</h1>
+            </div>
+            <div class="Row_Div">
+              <p>::first-letter</p>
+              <h1>The first letter was black.</h1>
+            </div>
+            <div class="Row_Div">
+              <p>::first-line</p>
+              <h3>
+                All the lines of this paragraph were black. We can change the styling of the first line of a paragraph
+                using the ::first-line pseudo-element.
+              </h3>
+            </div>
+            <div class="Row_Div">
+              <p>::selection</p>
+              <h3>
+                If you select a portion of the text, its background will be changed to yellow. Like a highlighter.
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="Section_Title" id="Typography">III. CSS Typography</h2>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">1. System fonts</h3>
+      <div class="text-content">
+        <p>
+          Each operating system has its own set of fonts that come pre-installed. <br><br />
+          You may use some fonts that are not available on the user's device. <br><br />
+          Subsequently, developers used to writing font stacks, which
+          enable them to write a font “wish list” for the browser. <br /><br />
+          The browser reads this declaration and goes from left to right until it finds a font it has available,
+          choosing that to render the associated text.<br /><br />
+          Some font names contain whitespace, so it is necessary to surround those strings
+          with single or double quotes.
+        </p>
+      </div>
+      <div class="code-example">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="My_class"&gt; <br><br>
+          Some content... <br><br>
+          &lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.My_class
+          { <br>
+          font-family: -apple-system, BlinkMacSystemFont, Roboto, Ubuntu, <br>
+          "Segoe UI", "Helvetica Neue", Arial, sans-serif;<br>
+          }</code></pre></div>
+      </div>
+      <div class="text-content">
+        <p>
+          The terms typeface and font are often conflated. Traditionally, typeface
+          refers to an entire family of fonts (Roboto), usually created by the same
+          designer. Within a typeface there may be multiple variants or weights (light,
+          bold, italic, condensed, and so on). Each of these variants is a font.
+        </p>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2. The @font-face CSS rule</h3>
+      <div class="text-content">
+        <p>
+          Web fonts use the @font-face at-rule to tell the browser where it can find and download custom fonts for use
+          on a page; <br><br>
+          To make a web font available for use in our CSS, we use the @font-face at-rule. This lets us provide a name
+          for the font that we can then reference, and also tells the browser where to go to fetch this file from.
+          <br><br>
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;p class="My_Font_1"&gt;<br>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+          repellat ullam repudiandae
+          quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+          maiores.
+          <br>
+          &lt;/p&gt;<br>
+          &lt;p class="My_Font_2"&gt;
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+          repellat ullam repudiandae
+          quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+          maiores.
+          &lt;/p&gt;<br>
+          &lt;p class="My_Font_3"&gt;<br>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+          repellat ullam repudiandae
+          quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+          maiores.
+          <br>
+          &lt;/p&gt;<br>
+          &lt;p class="My_Font_4"&gt;<br>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+          repellat ullam repudiandae
+          quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+          maiores.
+          <br>
+          &lt;/p&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">@font-face { <br>
+          font-family: "My_Font_1";<br>
+          src: url("../Fonts/My_Font.woff2") format("woff2"),<br>
+          url("../Fonts/My_Font.woff") format("woff");<br>
+          font-weight: normal;<br>
+          font-style: normal;<br>
+          font-display: fallback;<br>
+          }<br>
+          .My_Font_1
+          { <br>
+          font-family: "My_Font_1", sans-serif;<br>
+          } <br><br>
+          @font-face { <br>
+          font-family: "My_Font_2";<br>
+          src: url("../Fonts/My_Font.woff2") format("woff2"),<br>
+          url("../Fonts/My_Font.woff") format("woff");<br>
+          font-weight: normal;<br>
+          font-style: normal;<br>
+          font-display: fallback;<br>
+          }<br>
+          .My_Font_2
+          { <br>
+          font-family: "My_Font_2", sans-serif;<br>
+          } <br><br>
+          @font-face { <br>
+          font-family: "My_Font_3";<br>
+          src: url("../Fonts/My_Font.woff2") format("woff2"),<br>
+          url("../Fonts/My_Font.woff") format("woff");<br>
+          font-weight: normal;<br>
+          font-style: normal;<br>
+          font-display: fallback;<br>
+          }<br>
+          .My_Font_3
+          { <br>
+          font-family: "My_Font_3", sans-serif;<br>
+          } <br><br>
+          @font-face { <br>
+          font-family: "My_Font_4";<br>
+          src: url("../Fonts/My_Font.woff2") format("woff2"),<br>
+          url("../Fonts/My_Font.woff") format("woff");<br>
+          font-weight: normal;<br>
+          font-style: normal;<br>
+          font-display: fallback;<br>
+          }<br>
+          .My_Font_4
+          { <br>
+          font-family: "My_Font_2", sans-serif;<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <p class="My_Font_1">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+            repellat ullam repudiandae
+            quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+            maiores.
+          </p>
+          <p class="My_Font_2">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+            repellat ullam repudiandae
+            quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+            maiores.
+          </p>
+          <p class="My_Font_3">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+            repellat ullam repudiandae
+            quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+            maiores.
+          </p>
+          <p class="My_Font_4">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur laudantium illo
+            repellat ullam repudiandae
+            quia quos quibusdam molestiae totam, provident id nisi tenetur! In aliquam, reiciendis iste amet minus
+            maiores.
+          </p>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">3. Optimizing font loading with font-display</h3>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">FOUT and FOIT</h3>
+      <div class="text-content">
+        <p>
+          There's usually a moment when the content and layout of the page are ready to render, but the fonts are
+          still downloading.
+          It's important to consider what'll happen for that brief moment.
+          Originally, most browser vendors decided to render the page as soon as possible, using available system
+          fonts.
+          Then, a moment later, the web font would finish loading, and the page would re-render with the web fonts.
+          <br>
+          This is known as <b>FOUT</b>, or <b>Flash of Unstyled Text</b>. <br><br>
+          However, most browser vendors changed the behavior of their browsers.
+          Instead of rendering the fallback font, they rendered everything on the page except the text.
+          More precisely, they rendered the text as invisible, so it still takes up space on the page. <br>
+          This is known as <b>FOIT</b>, for <b>Flash of Invisible Text</b> <br><br>
+          A new CSS property, font-display, is in the works to provide better control over font loading. <br>
+          This property goes inside a @font-face rule. It specifies how the browser should treat web font loading.
+          <br>
+          The possible values are:
+        </p>
+        <ul>
+          <li><b>auto</b>: The default behavior (a FOIT in most browsers).</li>
+          <li><b>swap</b>: Displays the fallback font, then swaps in the web font when it's ready (a FOUT).</li>
+          <li><b>fallback</b>: A compromise between auto and swap. For a brief time (100 ms), the text will be
+            invisible. If the web font isn't available at this point, the fallback font is displayed. Then, once the
+            web font is loaded, it'll be displayed.</li>
+          <li><b>block</b>: Get a white screen for up to 3 seconds and then the actual font can replace any system
+            displayed font at any future point.</li>
+          <li><b>optional</b>: Similar to fallback, but allows the browser to decide whether to display the web
+            font based on the connection speed.</li>
+        </ul>
+
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;p class="My_Font_Class"&gt;<br>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi nostrum commodi,
+          possimus vitae rerum
+          voluptate, facilis explicabo assumenda veritatis inventore eaque ipsa, sed libero ipsam non voluptatibus
+          facere id dolorum. <br>
+          &lt;/p&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.My_Font_Class
+          { <br>
+          font-size: 20px;<br>
+          font-weight: bold;<br>
+          font-style: italic; /*normal, oblique */<br>
+          line-height: 1.4;<br>
+          letter-spacing: 0.01em;<br>
+          text-transform: uppercase;/* lowercase */<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <p class="My_Font_Class">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi nostrum commodi,
+            possimus vitae rerum
+            voluptate, facilis explicabo assumenda veritatis inventore eaque ipsa, sed libero ipsam non voluptatibus
+            facere id dolorum.
+          </p>
+        </div>
+      </div>
+
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">4. External fonts</h3>
+      <div class="text-content">
+        <p>
+          In this section, we will see how to use external fonts like Google fonts. <br>
+        <ol class="Steps">
+          <li>
+            <p>
+              Go to <a href="https://fonts.google.com/">https://fonts.google.com/</a>
+            </p>
+            <img class="Smaller_Image" src="../SRC/IMAGES/Lab_2/Google_Fonts_1.png" alt="Google_Fonts_1" />
+            <p>
+              You can select fonts from this screen, or you can search for a particular one.
+            </p>
+          </li>
+          <li>
+            <p>
+              In the style section click on the <b>+</b> button next to the <b>Fonts</b> section.
+              google will add this font to your font selection.
+            </p>
+            <img class="Smaller_Image" src="../SRC/IMAGES/Lab_2/Google_Fonts_2.png" alt="Google_Fonts_2" />
+            <p>
+              You can also delete a font from the selection by clicking on the <b>-</b> button next to the font name.
+            </p>
+          </li>
+          <li>
+            <p>
+              Copy the &lt;link&gt; tag and add it to your page's 
+                &lt;head&gt;.
+            </p>
+            <img class="Smaller_Image" src="../SRC/IMAGES/Lab_2/Google_Fonts_3.png" alt="Google_Fonts_3" />
+            <p>
+            </p>
+          </li>
+        </ol>
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;<br>
+          &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;<br>
+          &lt;link
+            href="https://fonts.googleapis.com/css2?family=Amiri:ital, wght@0,400; 0,700; 1,400; 1,700&display=swap"
+            rel="stylesheet"&gt;
+            </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.New_Font
+          { <br>
+          font-family: "Amiri Quran", serif; <br>
+          font-size: 2rem; <br>
+          font-weight: normal; <br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <p class="New_Font">
+            لقد أصبح الذكاء الاصطناعي مصطلحًا شاملًا للتطبيقات التي تؤدي مهام مُعقدة كانت تتطلب في الماضي إدخالات بشرية
+            مثل التواصل مع العملاء عبر الإنترنت أو ممارسة لعبة الشطرنج. يُستخدم غالبًا هذا المصطلح بالتبادل مع مجالاته
+            الفرعية، والتي تشمل التعلم الآلي (ML) والتعلم العميق.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="Section_Title">IV. CSS Colors</h2>
+      <div class="text-content">
+        <p>
+          There are several ways to define colors in CSS. <br><br>
+          We can use the RGB, HSL, Display-P3, and LCH color spaces. <br><br>
+          You can use the RGB format only but it is good to know the other formats. But knowing the other formats can
+          be useful especially when you need to work with colors in a more advanced way. In addition, it can be useful
+          to know how to convert between these formats especially when you work on maintaining other people's code.
+        </p>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">1. RGB color</h3>
+      <div class="text-content">
+        <p>
+          RGB (Red, Green, and Blue). <br><br>
+          A color might be defined in CSS as a hex (hexadecimal) value, where The first two digits are the red value
+          in hexadecimal, the next two are the green, and the last two are the blue. The syntaxe is #RRGGBB. <br><br>
+          Or RGB functional notation, where each value can be specified in a range from 0 to 255. The syntaxe is rgb(r,
+          g, b).
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;h1 class="My_RGB_Class"&gt;
+          My_RGB_Class
+          &lt;/h1&gt; <br><br>
+          &lt;h1 class="My_Other_RGB_Class"&gt;
+          My_Other_RGB_Class
+          &lt;/h1&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.My_RGB_Class
+          { <br>
+          color: #8c1515;<br>
+          } <br><br>
+          .My_Other_RGB_Class
+          { <br>
+          color: rgb(254, 2, 8);<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <h1 class="My_RGB_Class">My_RGB_Class</h1>
+          <h1 class="My_Other_RGB_Class">My_Other_RGB_Class</h1>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2. HSL color</h3>
+      <div class="text-content">
+        <p>
+          HSL stands for Hue, Saturation, and Lightness. <br><br>
+          Hue is a degree on the color wheel from 0 to 360. 0 is red, 120 is green, and 240 is blue. <br><br>
+          Saturation is a percentage value. 0% means a shade of gray, and 100% is the full color. <br><br>
+          Lightness is also a percentage. 0% is black, 50% is neither light or dark, 100% is white <br><br>
+          The syntaxe is hsl(hue, saturation, lightness). <br><br>
+          For example, if we locate the color red on the color wheel, we find it at 0 degrees. If we want a darker red,
+          we can decrease the lightness value. If we want a lighter red, we can increase the lightness value. <br><br>
+        </p>
+      </div>
+      <img class="Smaller_Image" src="../SRC/IMAGES/HSL_Color_Wheel.png" alt="HSL_Color_Wheel" />
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;h1 class="Blue"&gt;
+          This is blue
+          &lt;/h1&gt; <br><br>
+          &lt;h1 class="Darker_Blue"&gt;
+          This is Darker Blue
+          &lt;/h1&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.Blue
+          { <br>
+          color: hsl(240, 99%, 50%);<br>
+          } <br><br>
+          .Darker_Blue
+          { <br>
+          color: hsl(240, 99%, 30%);<br>
+          } <br><br></code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <h1 class="Blue_H1">This is blue</h1>
+          <h1 class="Darker_Blue">This is Darker Blue</h1>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">3. Alpha channels</h3>
+      <div class="text-content">
+        <p>
+          Colors can be partially transparent to allow some of what's beneath to show through. For that need, with
+          hex, RGB, and HSL, it is possible to define an alpha channel. <br> <br>
+          With hex, you can define an alpha channel with a four-digit or eight-digit syntax. <br><br>
+          It used to be necessary to define RGB or HSL colors with an alpha channel using the functional rgba() or
+          hsla() formats. However, that's no longer needed unless you need to support a very old browser. <br><br>
+          The syntaxe is rgba(red, green, blue, alpha) or hsla(hue, saturation, lightness, alpha). <br><br>
+          The alpha value can be a number between 0 and 1, where 0 is fully transparent and 1 is fully opaque. <br><br>
+          It can also be a percentage, where 0% is fully transparent and 100% is fully opaque. <br><br>
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="Alpha_HEX_4"&gt;
+          &lt;/div&gt; <br> <br>
+          &lt;div class="Alpha_HEX_8"&gt;
+          &lt;/div&gt; <br> <br>
+          &lt;div class="Alpha_HSL"&gt;
+          &lt;/div&gt; <br> <br>
+          &lt;div class="Alpha_HSL_Percent"&gt;
+          &lt;/div&gt; <br> <br>
+          &lt;div class="Alpha_RGB"&gt;
+          &lt;/div&gt; <br><br>
+          &lt;div class="Alpha_RGB_Space_Separated"&gt;
+          <>&lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.Alpha_HEX_4
+          { <br>
+          background-color: #0007;<br>
+          } <br><br>
+          .Alpha_HEX_8
+          { <br>
+          background-color: #00000077;<br>
+          } <br><br>
+          .Alpha_HSL
+          { <br>
+          background-color: hsl(359, 99%, 50%, 0.5);<br>
+          } <br><br>
+          .Alpha_HSL_Percent
+          { <br>
+          background-color: hsl(359, 99%, 50%, 50%);<br>
+          } <br><br>
+          .Alpha_RGB
+          { <br>
+          background-color: rgb(0, 0, 0, 0.5);<br>
+          } <br><br>
+          .Alpha_RGB_Space_Separated
+          { <br>
+          background-color: rgb(0 0 0 / 0.5);<br>
+          } <br><br></code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="Alpha_HEX_4 Square"></div>
+            <div class="Alpha_HEX_8 Square"></div>
+            <div class="Alpha_HSL Square"></div>
+            <div class="Alpha_HSL_Percent Square"></div>
+            <div class="Alpha_RGB Square"></div>
+            <div class="Alpha_RGB_Space_Separated Square"></div>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">4. Display-P3</h3>
+      <div class="text-content">
+        <p>
+          P3 is a superset of sRGB and makes up to 50% more colors possible. <br><br>
+          It uses the color() function to pass the red, green, and blue values. <br><br>
+          It differs only in that rather than using 0-255 to set each color channel,
+          it uses a decimal between 0 and 1, where 0 is none of that channel and 1 is all of it.
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="Display_P3"&gt;
+          <pre>&lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.Display_P3
+          { <br>
+          background-color: color(display-p3 0 1 0);<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="Display_P3 Square"></div>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">4. LCH function</h3>
+      <div class="text-content">
+        <p>
+          Lab/LCH are designed to be able to express all of human vision, even if currently our monitors are not
+          capable of it. <br><br>
+          LCH is an abbreviation of Lightness, Chroma, Hue. <br><br>
+          The syntax is Lightness as a percentage, then two numerical values: one for the Chroma,
+          and the third value for the Hue angle. <br><br>
+          Like the other functional color notations, you can add a forward slash (/) and then
+          add an alpha channel as a value between 0 and 1 or a percentage. <br><br>
+          Practically, when working with LCH, lower the lightness value for a darker variant of a color,
+          and increase it for a lighter one.
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="LCH"&gt;
+          &lt;/div&gt;</font>
+          </font></code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.LCH
+          { <br>
+          background-color: lch(50% 132 43);<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="LCH Square"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="Section_Title">II. CSS Units</h2>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">1. Absolute units</h3>
+      <div class="text-content">
+        <p>
+          CSS supports several absolute length units: pixel (px), mm (millimeter), cm (centimeter), in. (inch), pt
+          (point—typographic term for 1/72nd of an inch), and pc (pica—typographic term for 12 points). <br><br>
+          The most commonly used unit is the pixel. <br><br>
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="Pixels"&gt;
+          &lt;/div&gt;</font></font></code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.Pixels
+          { <br>
+          width: 50px;<br>
+          height: 50px;<br>
+          background-color: #8c1515;<br>
+          } <br>
+          .centimeter
+          { <br>
+          width: 2cm;<br>
+          height: 2cm;<br>
+          background-color: yellow;<br>
+          } <br>
+          .point
+          { <br>
+          width: 50pt;<br>
+          height: 50pt;<br>
+          background-color: blue;<br>
+          } <br>
+          .pica
+          { <br>
+          width: 5pc;<br>
+          height: 5pc;<br>
+          background-color: green;<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="Pixels"></div>
+            <div class="centimeter"></div>
+            <div class="point"></div>
+            <div class="pica"></div>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2. Relative units</h3>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2.1 Ems</h3>
+      <div class="text-content">
+        <p>
+          In CSS, 1 em means the font size of the current element; its exact value varies depending on the element
+          you're applying it to. <br><br>
+          Values declared using relative units are evaluated by the browser to an absolute value, called the computed
+          value. For example, if you set the padding of a paragraph to 1.5 em, the browser will calculate the
+          computed value based on the font size of the parent element. <br><br>
+          Using ems can be convenient when setting properties like padding, height, width, or border-radius because
+          these will scale evenly with the element if it inherits different font sizes,
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="EMS Small_EMS"&gt;<br>
+          This text is 20px large and the padding is 1em <br>
+          &lt;/div&gt;<br>
+          &lt;div class="EMS Large_EMS"&gt;<br>
+          This text is 40px large and the padding is 1em <br>
+          &lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.EMS
+          { <br>
+          border: solid 3px #8c1515;<br>
+          padding: 1em;<br>
+          } <br>
+          .Large_EMS
+          { <br>
+          font-size: 40px;<br>
+          } <br>
+          .Small_EMS
+          { <br>
+          font-size: 20px;<br>
+          }</code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="EMS Small_EMS">This text is 20px large and the padding is 1em</div>
+            <div class="EMS Large_EMS">This text is 40px large and the padding is 1em</div>
+          </div>
+        </div>
+      </div>
+      <div class="text-content">
+        <p>
+          If we use em units to specify font-size itself, the ems will be derived from the inherited font size. <br>
+          <br>
+          It's helpful to know that, for most browsers, the default font size is 16 px. Technically, it's the keyword
+          value medium that calculates to 16 px. <br><br>
+          What makes ems tricky is when you use them for both font size and any other properties on the same element.
+          When you do this, the browser must calculate the font size first, and then it uses that value to calculate
+          the other values.
+        </p>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2.2 Rems</h3>
+      <div class="text-content">
+        <p>
+          When the browser parses an HTML document, it creates a representation in memory of all the elements on the
+          page. This representation is called the DOM (Document Object Model). It's a tree structure, where each
+          element is represented by a node. The &lt;html&gt; element is the top-level (or
+          root) node. Beneath it are its child nodes, &lt;head&gt; and 
+            &lt;body&gt;. And beneath those are their children, then their children, and so on. The root node
+          is the ancestor of all other elements in the document. It has a special pseudo-class selector (:root) that
+          you can use to target it. <br><br>
+          Rem is short for root em. Instead of being relative to the current element, rems are relative to the root
+          element. No matter where you apply it in the document, 1.2 rem has the same computed value: 1.2 times the
+          font size of the root element.
+        </p>
+      </div>
+      <div class="Vertical_Demo">
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">HTML</h2>
+        <div class="code-example"><pre><code class="language-html">&lt;div class="REMS Small_REMS"&gt;<br>
+          This text is 20px large and the padding is 1rem <br>
+          &lt;/div&gt;<br>
+          &lt;div class="REMS Large_REMS"&gt;<br>
+          This text is 40px large and the padding is 1rem <br>
+          &lt;/div&gt;
+          </code></pre></code></pre></div>
+      <div style="text-align: center; margin: 15px 0;"><a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; font-size: 0.95rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 6px; box-shadow: 0 2px 8px rgba(255,107,53,0.3); transition: all 0.3s ease; font-weight: 500;"><i class="fa-solid fa-code"></i><span>Try This Code</span><i class="fa-solid fa-arrow-right"></i></a></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">CSS</h2>
+        <div class="code-example"><pre><code class="language-css">.REMS
+          { <br>
+          border: solid 3px #8c1515;<br>
+          padding: 1rem;<br>
+          } <br>
+          .Large_REMS
+          { <br>
+          font-size: 40px;<br>
+          } <br>
+          .Small_REMS
+          { <br>
+          font-size: 20px;<br>
+          }</code></pre></code></pre></div>
+        <h2 style="background: var(--primary-orange); color: white; padding: 8px 16px; border-radius: 6px 6px 0 0; margin: 0; font-size: 0.9rem;">Result</h2>
+        <div class="demo-output">
+          <div class="Squares">
+            <div class="REMS Small_REMS">This text is 20px large and the padding is 1rem</div>
+            <div class="REMS Large_REMS">This text is 40px large and the padding is 1rem</div>
+          </div>
+        </div>
+      </div>
+      <h3 style="color: var(--primary-orange); margin: 2rem 0 1rem; font-size: 1.8rem;">2.3 Viewport-relative</h3>
+      <div class="text-content">
+        <p>
+          viewport: The framed area in the browser window where the web page is visible. This excludes the browser's
+          address bar, toolbars, and status bar, if present. <br><br>
+          Recall when we saw the head part of the HTML document, we saw the meta tag viewport. This tag has an attribute
+          content that includes the width of the viewport. You can also set the initial scale, minimum scale, and
+          maximum
+          scale. <br><br>
+          This means that you can set the width of the viewport to be the same as the device width or you can set it to
+          be a specific width. <br><br>
+          CSS has four units that are relative to the viewport, that can take values between 0 and 100. <br><br>
+        <ul>
+          <li><b>vh:</b> 1/100<sup>th</sup> of the viewport height.</li>
+          <li><b>vw:</b> 1/100<sup>th</sup> of the viewport width.</li>
+          <li><b>vmin:</b> 1/100<sup>th</sup> of the smaller dimension, height or width.</li>
+          <li><b>vmax:</b> 1/100<sup>th</sup> of the larger dimension, height or width.</li>
+        </ul>
+        For example, 50 vw is equal to half the width of the viewport. <br> <br>
+        This is helpful for ensuring that an element will fit on the screen regardless of its orientation: If the
+        screen is landscape, it will be based on the height; if portrait, it's based on the width.
+        </p>
+      </div>
+    </section>
+  
+    &lt;!-- Practice Code Editor Button --&gt;
+    &lt;div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;"&gt;
+      &lt;h2 style="color: white; margin-bottom: 15px;"&gt;&lt;i class="fa-solid fa-laptop-code"&gt;&lt;/i&gt; Ready to Practice?&lt;/h2&gt;
+      &lt;p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;"&gt;Try out the concepts you've learned in our interactive code editor&lt;/p&gt;
+      &lt;a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 40px; font-size: 1.1rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; font-weight: 500;"&gt;
+        &lt;i class="fa-solid fa-code"&gt;&lt;/i&gt;
+        &lt;span&gt;Open Code Editor&lt;/span&gt;
+        &lt;i class="fa-solid fa-arrow-right"&gt;&lt;/i&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+
+        <!-- Navigation Buttons -->
+        <div class="lesson-navigation">
+          <a href="HTML.html" class="nav-btn prev-btn">
+            <i class="fas fa-arrow-left"></i> Previous: HTML Fundamentals
+          </a>
+          <a href="CSS_Layout.html" class="nav-btn next-btn">
+            Next: CSS Layout & Flexbox <i class="fas fa-arrow-right"></i>
+          </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+</body>
+
+</html>
+

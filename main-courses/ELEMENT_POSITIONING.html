@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Element Positioning - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button><ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="positioning">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>CSS Layout</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>Element Positioning</span>
+          </div>
+          <h1>Element Positioning</h1>
+          <p class="lesson-desc">
+            Master the art of placing elements exactly where you want them using CSS position properties.
+          </p>
+        </div>
+      </div>
+
+      <!-- Introduction Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <i class="fas fa-info-circle"></i>
+          <h2>The Position Property</h2>
+        </div>
+        <div class="info-card">
+          <p>
+            The initial value of the <code>position</code> property is <code>static</code>. 
+            Positioning allows you to remove elements from the normal document flow, 
+            letting you place them arbitrarily on the screen or relative to other elements.
+          </p>
+        </div>
+      </section>
+
+      <!-- Fixed Positioning Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <i class="fas fa-anchor"></i>
+          <h2>Fixed Positioning</h2>
+        </div>
+        <div class="info-card">
+          <p>
+            <code>position: fixed</code> lets you position an element relative to the <strong>viewport</strong>. 
+            It stays in the same place even when the page is scrolled.
+          </p>
+          <div class="code-example">
+            <pre><code class="language-css">.fixed-element {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}</code></pre>
+          </div>
+        </div>
+
+        <div class="demo-box" style="text-align: center; padding: 40px;">
+          <h3>Interactive Dialog Example</h3>
+          <p>Click the button to see a fixed-position modal in action.</p>
+          <button class="Open_Dialog_Btn" id="Open_Dialog_Btn_ID" style="padding: 12px 24px; background: #FFB600; color: #1a1a1a; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; transition: transform 0.2s;">
+            <i class="fas fa-window-maximize"></i> Open Modal Dialog
+          </button>
+        </div>
+
+        <!-- The actual modal -->
+        <div class="Dialog" id="Dialog_ID" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999;">
+          <div class="Dialog_Backdrop" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);"></div>
+          <div class="Dialog_Msg" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 40px; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); text-align: center; min-width: 300px;">
+            <i class="fas fa-info-circle" style="font-size: 3rem; color: #4facfe; margin-bottom: 20px;"></i>
+            <h4 style="margin-bottom: 15px; font-size: 1.5rem; color: #333;">Fixed Position Modal</h4>
+            <p style="color: #666; margin-bottom: 25px;">I'm positioned exactly in the center of your screen, no matter where you scroll!</p>
+            <button class="Close_Btn" id="Close_Btn_ID" style="padding: 10px 30px; background: #f5576c; color: white; border: none; border-radius: 6px; cursor: pointer;">Close</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Absolute Positioning Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <i class="fas fa-crosshairs"></i>
+          <h2>Absolute Positioning</h2>
+        </div>
+        <div class="info-card">
+          <p>
+            <code>position: absolute</code> positions an element relative to its <strong>closest positioned ancestor</strong> 
+            (an ancestor with <code>position: relative</code>, <code>absolute</code>, or <code>fixed</code>).
+          </p>
+        </div>
+        
+        <div class="demo-box" style="position: relative; height: 300px; background: #f8f9fa; border: 2px dashed #dee2e6; margin-top: 20px;">
+          <div style="position: absolute; top: 0; left: 0; padding: 10px; background: #4facfe; color: white; border-bottom-right-radius: 10px;">Top Left</div>
+          <div style="position: absolute; top: 0; right: 0; padding: 10px; background: #f5576c; color: white; border-bottom-left-radius: 10px;">Top Right</div>
+          <div style="position: absolute; bottom: 0; left: 0; padding: 10px; background: #43e97b; color: white; border-top-right-radius: 10px;">Bottom Left</div>
+          <div style="position: absolute; bottom: 0; right: 0; padding: 10px; background: #fdeb71; color: #333; border-top-left-radius: 10px;">Bottom Right</div>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: white; border: 1px solid #ddd; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px;">
+            Centered absolute
+          </div>
+        </div>
+      </section>
+
+      <!-- Relative Positioning Section -->
+      <section class="content-section">
+        <div class="section-header">
+          <i class="fas fa-arrows-alt"></i>
+          <h2>Relative Positioning</h2>
+        </div>
+        <div class="info-card">
+          <p>
+            <code>position: relative</code> allows you to move an element from its <strong>original position</strong> without 
+            affecting the surrounding elements. It also acts as a container for absolutely positioned children.
+          </p>
+          <div class="code-example">
+            <pre><code class="language-css">.parent { position: relative; }
+.child { position: absolute; top: 0; }</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Practice Code Editor Button -->
+      <div style="text-align: center; margin: 50px 0; padding: 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px;">
+        <h2 style="color: white; margin-bottom: 15px;"><i class="fa-solid fa-laptop-code"></i> Ready to Practice?</h2>
+        <p style="color: rgba(255,255,255,0.9); margin-bottom: 25px; font-size: 1.1rem;">Try out the concepts you've learned in our interactive code editor</p>
+        <a href="../pages/modern-codeeditor.html" style="display: inline-flex; align-items: center; gap: 10px; padding: 15px 40px; font-size: 1.1rem; text-decoration: none; background: #FF6B35; color: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: all 0.3s ease; font-weight: 500;">
+          <i class="fa-solid fa-code"></i>
+          <span>Open Code Editor</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="lesson-navigation">
+        <a href="CSS_Layout.html" class="nav-btn prev-btn">
+          <i class="fas fa-arrow-left"></i>
+          <div class="btn-text">
+            <span>Previous</span>
+            <p>CSS Layout</p>
+          </div>
+        </a>
+        <a href="Introduction_JavaScript.html" class="nav-btn next-btn">
+          <div class="btn-text">
+            <span>Next</span>
+            <p>Intro to JavaScript</p>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+</body>
+
+</html>
+

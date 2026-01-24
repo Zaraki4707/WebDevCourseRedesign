@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="../assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML - Web Development Platform</title>
+  <link rel="stylesheet" href="../modern-assets/css/main.css">
+  <link rel="stylesheet" href="../modern-assets/css/lesson.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-code"></i>
+        <span>Web Dev Course</span>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Lesson Container -->
+  <div class="lesson-container">
+    <main class="lesson-main">
+      <!-- Lesson Header -->
+      <div class="lesson-header" data-course-id="html">
+        <div class="header-content">
+          <div class="breadcrumb">
+            <a href="../pages/modern-courses.html">Courses</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>Fundamentals</span>
+            <i class="fas fa-chevron-right"></i>
+            <span>HTML</span>
+          </div>
+          <h1>HyperText Markup Language (HTML)</h1>
+          <div class="lesson-actions">
+            <button class="action-btn" onclick="markComplete()">
+              <i class="fas fa-check-circle"></i> Mark Complete
+            </button>
+            <button class="action-btn" onclick="toggleBookmark()">
+              <i class="fas fa-bookmark"></i> Bookmark
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lesson Content -->
+      <div class="lesson-content">
+
+        <!-- Introduction Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-info-circle"></i> What is HTML?</h2>
+          <div class="text-content">
+            <p>
+              HTML stands for Hyper Text Markup Language. It is the standard markup language for creating Web pages. It describes the structure of Web pages using markup. HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects, such as interactive forms, may be embedded into the rendered page.
+            </p>
+            <p>
+              It provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes, and other items. It can embed scripts written in languages such as JavaScript which affect the behavior of HTML web pages.
+            </p>
+            <div class="info-box">
+              <i class="fas fa-lightbulb"></i>
+              <p>To read the living standard of HTML, visit the <a href="https://html.spec.whatwg.org/multipage/" target="_blank">official specification</a>.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- HTML Structure Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-sitemap"></i> I. The Structure of HTML Pages</h2>
+          <div class="text-content">
+            <p>
+              HTML documents follow a standard structure that defines how content is organized. Every HTML page starts with a document type declaration and contains specific elements that browsers use to render the page correctly.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Basic HTML Structure</h3>
+            <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Welcome to HTML!&lt;/h1&gt;
+  &lt;p&gt;This is my first webpage.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          </div>
+          
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="key-points">
+            <h3><i class="fas fa-key"></i> Key Points:</h3>
+            <ul>
+              <li><strong>&lt;!DOCTYPE html&gt;</strong> - Declaration that tells the browser this is an HTML5 document</li>
+              <li><strong>&lt;html&gt;</strong> - Root element that wraps all content on the page</li>
+              <li><strong>lang attribute</strong> - Specifies the language of the document (e.g., "en" for English)</li>
+              <li><strong>&lt;head&gt;</strong> - Contains meta-information like title, character set, and CSS links</li>
+              <li><strong>&lt;meta charset="UTF-8"&gt;</strong> - Defines character encoding for proper text display</li>
+              <li><strong>&lt;title&gt;</strong> - Sets the page title shown in browser tab</li>
+              <li><strong>&lt;body&gt;</strong> - Contains all visible content displayed in the browser</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Headings Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-heading"></i> II. Text - Headings</h2>
+          <div class="text-content">
+            <p>
+              HTML has six levels of headings, which use the elements &lt;h1&gt; through &lt;h6&gt;. Headings are used to represent the hierarchical structure of the content. The &lt;h1&gt; element represents the highest level of heading, while the &lt;h6&gt; element represents the lowest level.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Heading Examples</h3>
+            <pre><code class="language-html">&lt;h1&gt;This is a Level 1 Heading&lt;/h1&gt;
+&lt;h2&gt;This is a Level 2 Heading&lt;/h2&gt;
+&lt;h3&gt;This is a Level 3 Heading&lt;/h3&gt;
+&lt;h4&gt;This is a Level 4 Heading&lt;/h4&gt;
+&lt;h5&gt;This is a Level 5 Heading&lt;/h5&gt;
+&lt;h6&gt;This is a Level 6 Heading&lt;/h6&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Paragraphs Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-paragraph"></i> II.2 Paragraphs</h2>
+          <div class="text-content">
+            <p>
+              The &lt;p&gt; element is used to create a paragraph. Browsers automatically add some space (margin) before and after each &lt;p&gt; element. Text is easier to understand when it is split up into units of text, and paragraphs provide this structure.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Paragraph Example</h3>
+            <pre><code class="language-html">&lt;p&gt;
+  A paragraph consists of one or more sentences that form a 
+  self-contained unit of discourse. The start of a paragraph 
+  is indicated by a new line.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Text is easier to understand when it is split up into units. 
+  For example, a book may have chapters with subheadings, and 
+  under each heading there will be one or more paragraphs.
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Bold and Italic Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-bold"></i> II.3 Bold and Italic</h2>
+          <div class="text-content">
+            <p>
+              The &lt;b&gt; element is used to represent text in a bold format. The &lt;i&gt; element is used to represent text in an italic format. The following example demonstrates how to use these elements.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Bold and Italic Example</h3>
+            <pre><code class="language-html">&lt;p&gt;
+  This is how we make a word appear &lt;b&gt;bold&lt;/b&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  This is how we make a word appear &lt;i&gt;italic&lt;/i&gt;.
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Superscript and Subscript Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-superscript"></i> II.4 Superscript and Subscript</h2>
+          <div class="text-content">
+            <p>
+              The &lt;sup&gt; element is used to represent superscript text. The &lt;sub&gt; element is used to represent subscript text.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Superscript and Subscript Example</h3>
+            <pre><code class="language-html">&lt;p&gt;
+  On the 10&lt;sup&gt;th&lt;/sup&gt; of February, you will have an exam.
+&lt;/p&gt;
+
+&lt;p&gt;
+  The formula for water is H&lt;sub&gt;2&lt;/sub&gt;O.
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Lists - Ordered Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-list-ol"></i> III. Lists - Ordered Lists</h2>
+          <div class="text-content">
+            <p>
+              The &lt;ol&gt; element is used to create an ordered list. Each item in the list is placed between an opening &lt;li&gt; tag and a closing &lt;/li&gt; tag. (The li stands for list item.)
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Ordered List Example</h3>
+            <pre><code class="language-html">&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;li&gt;PHP&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Lists - Unordered Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-list-ul"></i> III.2 Unordered Lists</h2>
+          <div class="text-content">
+            <p>
+              The &lt;ul&gt; element is used to create an unordered list. Each item in the list is placed between an opening &lt;li&gt; tag and a closing &lt;/li&gt; tag.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Unordered List Example</h3>
+            <pre><code class="language-html">&lt;ul&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+  &lt;li&gt;PHP&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Links Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-link"></i> IV. Links</h2>
+          <div class="text-content">
+            <p>
+              Links are created using the &lt;a&gt; element. Users can click on anything between the opening &lt;a&gt; tag and the closing &lt;/a&gt; tag. You specify which page you want to link to using the href attribute.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Link Example</h3>
+            <pre><code class="language-html">&lt;a href="https://ensia.edu.dz/"&gt;Visit ENSIA&lt;/a&gt;
+
+&lt;p&gt;
+  Check out our &lt;a href="courses.html"&gt;courses page&lt;/a&gt; for more information.
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Images Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-image"></i> V. Images</h2>
+          <div class="text-content">
+            <p>
+              The &lt;img&gt; element is used to add images to a web page. The src attribute tells the browser where to find the image file. The alt attribute provides alternative text that describes the image.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Image Example</h3>
+            <pre><code class="language-html">&lt;img src="logo.png" alt="Company Logo" width="200"&gt;
+
+&lt;p&gt;
+  &lt;img src="https://via.placeholder.com/150" alt="Placeholder"&gt;
+&lt;/p&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Tables Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-table"></i> VI. Tables</h2>
+          <div class="text-content">
+            <p>
+              The &lt;table&gt; element is used to create tables. Tables are defined using the &lt;tr&gt; element for rows, &lt;th&gt; for header cells, and &lt;td&gt; for data cells.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Table Example</h3>
+            <pre><code class="language-html">&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Name&lt;/th&gt;
+    &lt;th&gt;Age&lt;/th&gt;
+    &lt;th&gt;City&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ahmed&lt;/td&gt;
+    &lt;td&gt;20&lt;/td&gt;
+    &lt;td&gt;Algiers&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Sara&lt;/td&gt;
+    &lt;td&gt;22&lt;/td&gt;
+    &lt;td&gt;Oran&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Forms Section -->
+        <section class="content-section">
+          <h2><i class="fas fa-wpforms"></i> VII. Forms</h2>
+          <div class="text-content">
+            <p>
+              The &lt;form&gt; element is used to create HTML forms for user input. Forms can contain various input elements like text fields, checkboxes, radio buttons, and submit buttons.
+            </p>
+          </div>
+
+          <div class="code-example">
+            <h3>Form Example</h3>
+            <pre><code class="language-html">&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name"&gt;&lt;br&gt;&lt;br&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;
+  
+  &lt;label for="message"&gt;Message:&lt;/label&gt;&lt;br&gt;
+  &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+  
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</code></pre>
+          </div>
+
+          <div style="text-align: center; margin: 20px 0;">
+            <a href="../pages/modern-codeeditor.html" class="practice-editor-btn">
+              <i class="fas fa-code"></i>
+              <span>Try This Code</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <div class="lesson-navigation">
+          <a href="../pages/modern-courses.html" class="nav-btn prev-btn">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script>
+    // Re-highlight all code blocks after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      Prism.highlightAll();
+    });
+  </script>
+  <script src="../modern-assets/js/main.js"></script>
+  
+  <style>
+    .practice-editor-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      text-decoration: none;
+      background: var(--primary-orange);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .practice-editor-btn:hover {
+      background: #FF5722;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    .practice-editor-btn i:last-child {
+      transition: transform 0.3s ease;
+    }
+
+    .practice-editor-btn:hover i:last-child {
+      transform: translateX(5px);
+    }
+  </style>
+</body>
+
+</html>
+
