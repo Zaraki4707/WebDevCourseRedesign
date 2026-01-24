@@ -299,12 +299,13 @@ function renderDeadlines() {
   // Render Global Deadlines (Read-only)
   globalDeadlines.forEach((item) => {
     const row = document.createElement('tr');
-    row.style.background = '#f8f9fa';
+    row.style.background = '#f0f7ff';
     row.innerHTML = `
-      <td><strong>${item.name}</strong> <span class="admin-badge" style="font-size: 0.7rem; background: var(--dark-blue);">Global</span></td>
+      <td><strong>${item.name}</strong></td>
       <td>${new Date(item.date).toLocaleDateString()}</td>
+      <td><span class="admin-badge" style="font-size: 0.7rem; background: var(--dark-blue);">Global (Live)</span></td>
       <td>
-        <span style="font-size: 0.8rem; color: var(--gray-dark);">From config.js</span>
+        <span style="font-size: 0.8rem; color: var(--gray-dark); font-style: italic;">Locked in config.js</span>
       </td>
     `;
     tbody.appendChild(row);
@@ -316,8 +317,9 @@ function renderDeadlines() {
     row.innerHTML = `
       <td><strong>${item.name}</strong></td>
       <td>${new Date(item.date).toLocaleDateString()}</td>
+      <td><span class="admin-badge" style="font-size: 0.7rem; background: #6c757d;">Local Only</span></td>
       <td>
-        <button onclick="deleteDeadline(${index})" class="btn-small btn-lock">
+        <button onclick="deleteDeadline(${index})" class="btn-small btn-lock" style="background: #dc3545;">
           <i class="fas fa-trash"></i> Delete
         </button>
       </td>
@@ -326,8 +328,41 @@ function renderDeadlines() {
   });
 
   if (globalDeadlines.length === 0 && localDeadlines.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gray-dark);">No deadlines set.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; padding: 20px; color: var(--gray-dark);">No deadlines set.</td></tr>';
   }
+}
+
+function exportGlobalConfig() {
+  const localDeadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+  if (localDeadlines.length === 0) {
+    alert('You have no local deadlines to sync. Add some first!');
+    return;
+  }
+
+  const jsCode = `// Copy and paste this into modern-assets/js/config.js
+window.CourseGlobalConfig = {
+  deadlines: ${JSON.stringify(localDeadlines, null, 2)}
+};`;
+
+  // Create a overlay/modal to show the code
+  const overlay = document.createElement('div');
+  overlay.style = "position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;";
+  
+  const modal = document.createElement('div');
+  modal.style = "background: white; padding: 30px; border-radius: 12px; max-width: 600px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.3);";
+  
+  modal.innerHTML = `
+    <h3 style="margin-top: 0; color: var(--dark-blue);"><i class="fas fa-sync-alt"></i> Sync Code Generated</h3>
+    <p style="margin-bottom: 20px; font-size: 0.9rem;">Copy the code below and paste it into <strong>modern-assets/js/config.js</strong> to make these deadlines visible to all students.</p>
+    <textarea readonly style="width: 100%; height: 200px; padding: 10px; font-family: monospace; border: 1px solid #ccc; border-radius: 4px; margin-bottom: 20px;">${jsCode}</textarea>
+    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+      <button onclick="this.parentElement.parentElement.parentElement.remove()" style="padding: 10px 20px; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; background: white;">Close</button>
+      <button onclick="navigator.clipboard.writeText(\`${jsCode.replace(/`/g, '\\`')}\`); alert('Copied to clipboard!')" style="padding: 10px 20px; background: var(--primary-orange); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">Copy Code</button>
+    </div>
+  `;
+  
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
 }
 
 function addDeadline() {

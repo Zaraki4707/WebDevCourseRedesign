@@ -411,6 +411,7 @@
             <tr>
               <th>Work Name</th>
               <th>Deadline Date</th>
+              <th>Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -418,6 +419,17 @@
             <!-- Deadlines will be rendered via JS -->
           </tbody>
         </table>
+
+        <!-- Export Global Config Section -->
+        <div style="margin-top: 20px; padding: 20px; background: #e3f2fd; border-radius: 8px; border-left: 5px solid #2196f3;">
+          <h4 style="color: #0d47a1; margin-bottom: 10px;"><i class="fas fa-globe"></i> Sync with All Students</h4>
+          <p style="font-size: 0.9rem; color: #1565c0; margin-bottom: 15px;">
+            Deadlines you add above are saved in your browser. To make them visible to <strong>all students globally</strong>, click the button below and follow the instructions.
+          </p>
+          <button onclick="exportGlobalConfig()" class="btn-schedule" style="background: #2196f3; padding: 10px 20px; border: none; color: white; border-radius: 6px; cursor: pointer;">
+            <i class="fas fa-file-export"></i> Generate Sync Code
+          </button>
+        </div>
       </div>
 
       <div class="section-header">
