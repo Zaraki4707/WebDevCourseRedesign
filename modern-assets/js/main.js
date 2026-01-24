@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (lessonHeader && lessonHeader.dataset.courseId) {
     const courseId = lessonHeader.dataset.courseId;
     if (!isCourseUnlocked(courseId)) {
-      window.location.href = '../pages/modern-locked.html?course=' + courseId;
+      window.location.href = '../modern-locked.html?course=' + courseId;
     }
   }
 });
@@ -191,7 +191,7 @@ function isCourseUnlocked(courseId) {
 
 function checkCourseAccess(courseId) {
   if (!isCourseUnlocked(courseId)) {
-    window.location.href = '../pages/modern-locked.html?course=' + courseId;
+    window.location.href = '../modern-locked.html?course=' + courseId;
     return false;
   }
   return true;
@@ -288,3 +288,4 @@ window.CourseApp = {
   toggleCourseLock,
   showNotification
 };
+

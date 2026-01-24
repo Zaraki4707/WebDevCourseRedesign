@@ -166,3 +166,4 @@ function resetProgress() {
 
 // Export functions
 window.resetProgress = resetProgress;
+
