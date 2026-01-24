@@ -56,6 +56,10 @@ function init() {
   // Show permission notice for normal admins
   if (adminSession.role === 'normal') {
     document.getElementById('permissionNotice').style.display = 'flex';
+  } else if (adminSession.role === 'super') {
+    // Show deadline manager for super admins
+    document.getElementById('deadlineManager').style.display = 'block';
+    renderDeadlines();
   }
 
   // Initialize course locks if not exists
@@ -281,6 +285,68 @@ function updateStats() {
 function logout() {
   localStorage.removeItem('adminSession');
   window.location.href = 'admin-login.html';
+}
+
+// ===== DEADLINE MANAGEMENT (SUPER ADMIN) =====
+function renderDeadlines() {
+  const tbody = document.getElementById('deadlinesTableBody');
+  if (!tbody) return;
+  
+  const deadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+  tbody.innerHTML = '';
+
+  if (deadlines.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gray-dark);">No deadlines set.</td></tr>';
+    return;
+  }
+
+  deadlines.forEach((item, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td><strong>${item.name}</strong></td>
+      <td>${new Date(item.date).toLocaleDateString()}</td>
+      <td>
+        <button onclick="deleteDeadline(${index})" class="btn-small btn-lock">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
+}
+
+function addDeadline() {
+  const nameInput = document.getElementById('deadlineName');
+  const dateInput = document.getElementById('deadlineDate');
+  
+  if (!nameInput.value || !dateInput.value) {
+    alert('Please fill in both the name and the date');
+    return;
+  }
+
+  const deadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+  deadlines.push({
+    name: nameInput.value,
+    date: dateInput.value
+  });
+
+  localStorage.setItem('courseDeadlines', JSON.stringify(deadlines));
+  
+  // Reset inputs
+  nameInput.value = '';
+  dateInput.value = '';
+  
+  renderDeadlines();
+  alert('Deadline added successfully!');
+}
+
+function deleteDeadline(index) {
+  if (!confirm('Are you sure you want to delete this deadline?')) return;
+  
+  const deadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+  deadlines.splice(index, 1);
+  localStorage.setItem('courseDeadlines', JSON.stringify(deadlines));
+  renderDeadlines();
 }
 
 // Initialize on load
