@@ -1,32 +1,43 @@
-# Web_Development_2023
-Web_Development
+# Web Development Course – ENSIA
 
-## HTML
-- HTML is the standard markup language for creating Web pages.
+This project is a modern, interactive web development curriculum for ENSIA students. It is designed for static hosting and is ready for deployment on [Vercel](https://vercel.com/).
 
-- HTML stands for Hyper Text Markup Language
-- HTML describes the structure of a Web page
-- HTML consists of a series of elements
-- HTML elements tell the browser how to display the content
+---
 
+## 🚀 Deployment (Vercel)
 
-## CSS
-- CSS is the language we use to style an HTML document.
+1. **Automatic Deploy:**
+	- Every push to the `main` branch will trigger a new deployment on Vercel.
+	- The root `index.html` is the homepage. All main pages are in the root directory.
 
-- CSS stands for Cascading Style Sheets
-- CSS describes how HTML elements are to be displayed on screen, paper, or in other media
+2. **Manual Deploy:**
+	- Import this repo into Vercel via the dashboard.
+	- Set the output/public directory to `.` (the root folder).
+	- No build command is needed (static site).
 
-## JavaScript
+---
 
-- JavaScript is the Programming Language for the Web.
+## 📁 Project Structure
+- `index.html` – Home page (root)
+- `modern-courses.html` – Course catalog
+- `modern-teachers.html` – Teachers page
+- `modern-progress.html` – Progress tracker
+- `labs/` – All practical lab exercises (Lab 0–13)
+- `main-courses/` – Main course content (HTML, CSS, JS, PHP, etc.)
+- `optional-courses/` – Optional/specialized tracks (React, Security, MVC, Unit Testing)
+- `modern-assets/` – CSS and JS for the modern UI
+- `assets/` – Images and icons
+- `SRC/` – Legacy and supporting files
 
-- JavaScript can update and change both HTML and CSS
-- JavaScript can calculate, manipulate and validate data
+---
 
-## PHP
+## 📝 Notes
+- All internal links and asset paths are relative to the root for Vercel compatibility.
+- No server-side code (PHP) will run on Vercel; only static HTML, CSS, and JS are supported.
+- For dynamic/server features, use Vercel Serverless Functions or an external backend.
 
-- PHP is a server scripting language, and a powerful tool for making dynamic and interactive Web pages.
+---
 
-- PHP is a widely-used, free, and efficient alternative to competitors such as Microsoft's ASP.
+**Happy learning and teaching!**
 
 
