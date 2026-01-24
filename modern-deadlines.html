@@ -168,11 +168,20 @@
   </footer>
 
   <script src="modern-assets/js/main.js"></script>
+  <script src="modern-assets/js/config.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const tbody = document.getElementById('deadlineTableBody');
       const emptyState = document.getElementById('emptyState');
-      const deadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+      
+      // Get Global Deadlines from config.js
+      const globalDeadlines = (window.CourseGlobalConfig && window.CourseGlobalConfig.deadlines) || [];
+      
+      // Get Admin's local deadlines (created on this device)
+      const localDeadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+      
+      // Combine them
+      const deadlines = [...globalDeadlines, ...localDeadlines];
 
       if (deadlines.length === 0) {
         document.getElementById('deadlineTable').style.display = 'none';

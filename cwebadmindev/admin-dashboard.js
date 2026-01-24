@@ -292,15 +292,26 @@ function renderDeadlines() {
   const tbody = document.getElementById('deadlinesTableBody');
   if (!tbody) return;
   
-  const deadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+  const globalDeadlines = (window.CourseGlobalConfig && window.CourseGlobalConfig.deadlines) || [];
+  const localDeadlines = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
   tbody.innerHTML = '';
 
-  if (deadlines.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gray-dark);">No deadlines set.</td></tr>';
-    return;
-  }
+  // Render Global Deadlines (Read-only)
+  globalDeadlines.forEach((item) => {
+    const row = document.createElement('tr');
+    row.style.background = '#f8f9fa';
+    row.innerHTML = `
+      <td><strong>${item.name}</strong> <span class="admin-badge" style="font-size: 0.7rem; background: var(--dark-blue);">Global</span></td>
+      <td>${new Date(item.date).toLocaleDateString()}</td>
+      <td>
+        <span style="font-size: 0.8rem; color: var(--gray-dark);">From config.js</span>
+      </td>
+    `;
+    tbody.appendChild(row);
+  });
 
-  deadlines.forEach((item, index) => {
+  // Render Local Deadlines
+  localDeadlines.forEach((item, index) => {
     const row = document.createElement('tr');
     row.innerHTML = `
       <td><strong>${item.name}</strong></td>
@@ -313,6 +324,10 @@ function renderDeadlines() {
     `;
     tbody.appendChild(row);
   });
+
+  if (globalDeadlines.length === 0 && localDeadlines.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 20px; color: var(--gray-dark);">No deadlines set.</td></tr>';
+  }
 }
 
 function addDeadline() {
