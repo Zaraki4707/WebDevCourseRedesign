@@ -1,43 +1,80 @@
-# Web Development Course – ENSIA
+# 🌐 Web Development Interactive Curriculum — ENSIA
 
-This project is a modern, interactive web development curriculum for ENSIA students. It is designed for static hosting and is ready for deployment on [Vercel](https://vercel.com/).
+[![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://web-dev-course-redesign.vercel.app/)
+[![Tech Stack](https://img.shields.io/badge/Tech%20Stack-HTML5%20|%20CSS3%20|%20JS-orange?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/Zaraki4707/WebDevCourseRedesign)
 
----
-
-## 🚀 Deployment (Vercel)
-
-1. **Automatic Deploy:**
-	- Every push to the `main` branch will trigger a new deployment on Vercel.
-	- The root `index.html` is the homepage. All main pages are in the root directory.
-
-2. **Manual Deploy:**
-	- Import this repo into Vercel via the dashboard.
-	- Set the output/public directory to `.` (the root folder).
-	- No build command is needed (static site).
+An advanced, interactive learning platform designed for **ENSIA** students. This project modernizes the legacy web development curriculum into a responsive, sleek, and feature-rich experience.
 
 ---
 
-## 📁 Project Structure
-- `index.html` – Home page (root)
-- `modern-courses.html` – Course catalog
-- `modern-teachers.html` – Teachers page
-- `modern-progress.html` – Progress tracker
-- `labs/` – All practical lab exercises (Lab 0–13)
-- `main-courses/` – Main course content (HTML, CSS, JS, PHP, etc.)
-- `optional-courses/` – Optional/specialized tracks (React, Security, MVC, Unit Testing)
-- `modern-assets/` – CSS and JS for the modern UI
-- `assets/` – Images and icons
-- `SRC/` – Legacy and supporting files
+## ✨ Core Features
+
+- 🎓 **Comprehensive Curriculum**: 14+ Labs covering everything from HTML basics to advanced React & PHP.
+- 📅 **Global Deadline System**: Super Admin controlled sync for project submissions.
+- 📊 **Progress Analytics**: Localized student progress tracking with interactive charts.
+- 🔐 **Course Locking**: Admin-controlled scheduling for course accessibility.
+- 👨‍🏫 **Admin Dashboard**: Dedicated portal for course management and synchronization.
+- 📱 **Responsive Design**: Optimized for desktop, tablet, and mobile viewing.
 
 ---
 
-## 📝 Notes
-- All internal links and asset paths are relative to the root for Vercel compatibility.
-- No server-side code (PHP) will run on Vercel; only static HTML, CSS, and JS are supported.
-- For dynamic/server features, use Vercel Serverless Functions or an external backend.
+## 🛠 Tech Stack
+
+- **Frontend**: Vanilla HTML5, CSS3 (Modern Flexbox/Grid), JavaScript (ES6+)
+- **Charts**: [Chart.js](https://www.chartjs.org/) for progress visualization
+- **Icons**: [FontAwesome 6](https://fontawesome.com/)
+- **Hosting**: [Vercel](https://vercel.com/) (CI/CD Integrated)
 
 ---
 
-**Happy learning and teaching!**
+## 📁 Project Architecture
+
+```text
+root/
+├── 🏠 index.html            # Main Entry Point
+├── 📚 modern-courses.html    # Course Catalog
+├── 📅 modern-deadlines.html  # Student Deadline Tracking
+├── 👨‍🏫 modern-teachers.html   # Faculty Directory
+├── 📈 modern-progress.html   # Student Analytics
+├── 🏗️ labs/                  # Modernized Practical Exercises (0-13)
+├── ⚙️ cwebadmindev/          # Admin Portal & Management Logic
+└── 🎨 modern-assets/         # Centralized Styles & Global Config
+```
+
+---
+
+## 🚀 Getting Started
+
+### For Students
+1. Open the [Live Site](https://web-dev-course-redesign.vercel.app/).
+2. Navigate to **Courses** to begin your journey.
+3. Check **Deadlines** to stay updated on submissions.
+
+### For Administrators
+1. Access the dashboard via `/cwebadmindev/admin-login.html`.
+2. Manage deadlines, course locks, and schedules.
+3. Use the **Global Sync** feature to update `modern-assets/js/config.js` and notify all students.
+
+---
+
+## 🏗 Deployment Guide
+
+This project is optimized for **Vercel**. Every commit to `main` triggers an automatic build.
+
+1. **Root Directory**: `.`
+2. **Build Settings**: No override needed.
+3. **Environment**: Ensure `vercel.json` is present for clean URLs.
+
+---
+
+## 🎓 About ENSIA
+This platform serves as the primary resource for the Web Development module at the **Ecole Nationale Supérieure d'Intelligence Artificielle (ENSIA)**.
+
+---
+
+<p align="center">
+  <b>Built with ❤️ for the next generation of Web Developers</b>
+</p>
 
 
