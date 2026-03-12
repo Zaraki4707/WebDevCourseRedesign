@@ -3,6 +3,7 @@
 [![Vercel Deployment](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://web-dev-course-redesign.vercel.app/)
 [![Tech Stack](https://img.shields.io/badge/Tech%20Stack-HTML5%20|%20CSS3%20|%20JS-orange?style=for-the-badge)](https://developer.mozilla.org/en-US/docs/Web)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)](https://github.com/Zaraki4707/WebDevCourseRedesign)
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 An advanced, interactive learning platform designed for **ENSIA** students. This project modernizes the legacy web development curriculum into a responsive, sleek, and feature-rich experience.
 
@@ -73,8 +74,19 @@ This platform serves as the primary resource for the Web Development module at t
 
 ---
 
+## 📜 License
+
+Copyright © 2026 **Mekki Zakaria Abdenour** & **ENSIA**
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for full details.
+
+This platform was developed for educational use at ENSIA. Unauthorized commercial use or redistribution without attribution is prohibited.
+
+---
+
 <p align="center">
-  <b>Built with ❤️ for the next generation of Web Developers</b>
+  <b>Built with ❤️ for the next generation of Web Developers</b><br>
+  <sub>© 2026 Mekki Zakaria Abdenour — ENSIA</sub>
 </p>
 
 
