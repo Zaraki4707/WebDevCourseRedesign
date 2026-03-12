@@ -48,7 +48,7 @@ root/
 ## 🚀 Getting Started
 
 ### For Students
-1. Open the [Live Site](https://web-dev-course-redesign.vercel.app/).
+1. Open the [Live Site](https://webdevcourse-ensia.vercel.app/).
 2. Navigate to **Courses** to begin your journey.
 3. Check **Deadlines** to stay updated on submissions.
 
