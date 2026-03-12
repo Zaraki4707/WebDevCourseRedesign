@@ -4,7 +4,7 @@ import re
 dir_path = r'c:\Users\Nitro\Desktop\update mhmoudi\'s website\Web_Development_Course\labs'
 button_html = """
 <div style="margin: 20px; text-align: left;">
-    <a href="../pages/modern-courses.html" style="text-decoration: none; color: #FF6B35; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
+    <a href="../pages/courses.html" style="text-decoration: none; color: #FF6B35; font-weight: bold; display: inline-flex; align-items: center; gap: 8px;">
         <i class="fas fa-arrow-left"></i> Back to Courses
     </a>
 </div>
@@ -22,7 +22,7 @@ for filename in os.listdir(dir_path):
         content = content.replace('&gt;&lt;h1>', '>')
 
         # 2. Add button - only if not already present
-        if '../pages/modern-courses.html' not in content:
+        if '../pages/courses.html' not in content:
             if '<main>' in content:
                 # Insert after <main>
                 content = content.replace('<main>', f'<main>{button_html}')

@@ -38,7 +38,7 @@ def migrate_lab_file(file_path, filename):
     for node in content_nodes:
         node_str = str(node)
         # Skip the back courses button if it exists
-        if 'modern-courses.html' in node_str and 'Back to Courses' in node_str:
+        if 'courses.html' in node_str and 'Back to Courses' in node_str:
             continue
         # Skip the h1 lesson-header
         if node.name == 'h1' and ('lesson-header' in node.get('class', []) or node.get_text().startswith(f'Lab {lab_num}')):
@@ -75,9 +75,9 @@ def migrate_lab_file(file_path, filename):
       <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
       <ul class="nav-menu" id="navMenu">
         <li><a href="../pages/modern-index.html"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="../pages/modern-courses.html"><i class="fas fa-book"></i> Courses</a></li>
-        <li><a href="../pages/modern-teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
-        <li><a href="../pages/modern-progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+        <li><a href="../pages/courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="../pages/teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="../pages/progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
       </ul>
     </div>
   </nav>
@@ -87,7 +87,7 @@ def migrate_lab_file(file_path, filename):
       <div class="lesson-header" data-course-id="lab-{lab_num}">
         <div class="header-content">
           <div class="breadcrumb">
-            <a href="../pages/modern-courses.html">Courses</a>
+            <a href="../pages/courses.html">Courses</a>
             <i class="fas fa-chevron-right"></i>
             <span>Labs</span>
             <i class="fas fa-chevron-right"></i>

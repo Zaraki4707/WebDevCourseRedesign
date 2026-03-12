@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="assets/realfavicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Work - Web Dev Course</title>
+  <link rel="stylesheet" href="modern-assets/css/main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    /* ── Page layout ── */
+    .submit-section {
+      padding: 60px 0;
+      min-height: calc(100vh - 260px);
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, var(--dark-blue) 0%, var(--light-blue) 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      margin-bottom: 10px;
+    }
+
+    .page-header h1 i {
+      color: var(--primary-orange);
+      margin-right: 12px;
+    }
+
+    .page-header p {
+      opacity: 0.8;
+      font-size: 1.05rem;
+    }
+
+    /* ── Deadline cards ── */
+    .deadlines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .deadline-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      padding: 28px;
+      border-left: 5px solid var(--gray-medium);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deadline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+    }
+
+    .deadline-card.open {
+      border-left-color: var(--primary-orange);
+    }
+
+    .deadline-card.closed {
+      border-left-color: #d32f2f;
+      opacity: 0.7;
+    }
+
+    .deadline-card.future {
+      border-left-color: #1976d2;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .deadline-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      flex: 1;
+      margin-right: 12px;
+    }
+
+    .gate-badge {
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge-open    { background: #fff3e0; color: #e65100; }
+    .badge-closed  { background: #ffebee; color: #c62828; }
+    .badge-future  { background: #e3f2fd; color: #1565c0; }
+
+    .deadline-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .deadline-meta i {
+      color: var(--primary-orange);
+      width: 16px;
+    }
+
+    .countdown {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-orange);
+      margin: 10px 0 18px;
+    }
+
+    .countdown.overdue { color: #c62828; }
+    .countdown.future  { color: #1565c0; }
+
+    /* ── Submit button ── */
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn-submit:hover {
+      background: #e55a28;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255,107,53,0.35);
+    }
+
+    .btn-submit:disabled,
+    .btn-submit.disabled {
+      background: var(--gray-medium);
+      color: var(--gray-dark);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ── Already submitted banner ── */
+    .already-submitted {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    /* ── Modal overlay ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 31, 58, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--white);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--dark-blue), var(--light-blue));
+      color: var(--white);
+      padding: 28px 32px 24px;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+    }
+
+    .modal-header h2 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .modal-header h2 i {
+      color: var(--primary-orange);
+      margin-right: 10px;
+    }
+
+    .modal-header p {
+      opacity: 0.75;
+      font-size: 0.9rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      color: var(--white);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.3); }
+
+    .modal-body {
+      padding: 32px;
+    }
+
+    /* ── Form ── */
+    .form-group {
+      margin-bottom: 22px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-group label i {
+      color: var(--primary-orange);
+      width: 16px;
+    }
+
+    .form-group label .optional {
+      font-weight: 400;
+      color: var(--gray-dark);
+      font-size: 0.82rem;
+      margin-left: 4px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid var(--gray-medium);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: var(--dark-blue);
+      background: var(--gray-light);
+      transition: var(--transition);
+      font-family: inherit;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-orange);
+      background: var(--white);
+      box-shadow: 0 0 0 4px rgba(255,107,53,0.12);
+    }
+
+    /* ── File upload zone ── */
+    .file-drop-zone {
+      border: 2px dashed var(--gray-medium);
+      border-radius: 10px;
+      padding: 28px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      background: var(--gray-light);
+      position: relative;
+    }
+
+    .file-drop-zone:hover,
+    .file-drop-zone.drag-over {
+      border-color: var(--primary-orange);
+      background: #fff8f5;
+    }
+
+    .file-drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .file-drop-zone i {
+      font-size: 2rem;
+      color: var(--primary-orange);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .file-drop-zone p {
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+    }
+
+    .file-drop-zone .file-name {
+      margin-top: 10px;
+      font-weight: 600;
+      color: var(--dark-blue);
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .file-hint {
+      font-size: 0.8rem;
+      color: var(--gray-dark);
+      margin-top: 6px;
+    }
+
+    /* ── Submit / success ── */
+    .btn-submit-form {
+      width: 100%;
+      padding: 14px;
+      background: var(--primary-orange);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-submit-form:hover {
+      background: #e55a28;
+      box-shadow: 0 4px 14px rgba(255,107,53,0.4);
+    }
+
+    .success-state {
+      text-align: center;
+      padding: 20px 0 10px;
+      display: none;
+    }
+
+    .success-state .check-icon {
+      width: 70px;
+      height: 70px;
+      background: #e8f5e9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+    }
+
+    .success-state .check-icon i {
+      font-size: 2rem;
+      color: #2e7d32;
+    }
+
+    .success-state h3 {
+      font-size: 1.4rem;
+      color: var(--dark-blue);
+      margin-bottom: 10px;
+    }
+
+    .success-state p {
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .mailto-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 11px 22px;
+      background: var(--dark-blue);
+      color: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .mailto-link:hover { background: var(--light-blue); }
+
+    /* ── Empty state ── */
+    .empty-box {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-dark);
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: var(--shadow-sm);
+      margin-top: 40px;
+    }
+
+    .empty-box i {
+      font-size: 3rem;
+      color: var(--gray-medium);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .modal-body { padding: 24px 20px; }
+      .modal-header { padding: 24px 20px 20px; }
+      .deadlines-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><i class="fas fa-code"></i><span>Web Dev Course</span></a>
+      <button class="nav-toggle" id="navToggle">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="courses.html"><i class="fas fa-book"></i> Courses</a></li>
+        <li><a href="deadlines.html"><i class="fas fa-calendar-alt"></i> Deadlines</a></li>
+        <li><a href="teachers.html"><i class="fas fa-chalkboard-teacher"></i> Teachers</a></li>
+        <li><a href="progress.html"><i class="fas fa-chart-line"></i> Progress</a></li>
+        <li><a href="submit.html" class="active"><i class="fas fa-paper-plane"></i> Submit</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-paper-plane"></i> Submit Your Work</h1>
+      <p>Submission gates open 3 days before each deadline and close when the deadline passes</p>
+    </div>
+  </section>
+
+  <!-- Submissions List -->
+  <section class="submit-section">
+    <div class="container">
+      <div class="deadlines-grid" id="deadlinesGrid">
+        <!-- Cards injected by JS -->
+      </div>
+      <div class="empty-box" id="emptyBox" style="display:none;">
+        <i class="fas fa-calendar-times"></i>
+        <p>No deadlines have been configured yet. Check back later.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Submission Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h2 id="modalTitle"><i class="fas fa-upload"></i> <span id="modalDeadlineName">Submit</span></h2>
+        <p id="modalDeadlineDate"></p>
+        <button class="modal-close" id="modalClose" aria-label="Close"><i class="fas fa-times"></i></button>
+      </div>
+
+      <!-- Form state -->
+      <div class="modal-body" id="formState">
+        <form id="submitForm" novalidate>
+
+          <div class="form-group">
+            <label for="studentName"><i class="fas fa-user"></i> Full Name</label>
+            <input type="text" id="studentName" class="form-control" placeholder="e.g. Ahmed Benali" required>
+          </div>
+
+          <div class="form-group">
+            <label for="studentEmail"><i class="fas fa-envelope"></i> ENSIA Email</label>
+            <input type="email" id="studentEmail" class="form-control" placeholder="firstname.lastname@ensia.edu.dz" required>
+          </div>
+
+          <div class="form-group">
+            <label for="repoUrl"><i class="fas fa-code-branch"></i> Repository Link</label>
+            <input type="url" id="repoUrl" class="form-control" placeholder="https://github.com/username/repo" required>
+          </div>
+
+          <div class="form-group">
+            <label>
+              <i class="fas fa-file-pdf"></i> PDF Report
+              <span class="optional">(optional — attach or link below)</span>
+            </label>
+            <div class="file-drop-zone" id="fileDropZone">
+              <input type="file" id="pdfFile" accept=".pdf" aria-label="Upload PDF report">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag &amp; drop your PDF here, or click to browse</p>
+              <div class="file-name" id="fileName"></div>
+            </div>
+            <p class="file-hint"><i class="fas fa-info-circle"></i> Max size: 10 MB. Alternatively, paste a Drive/cloud link below.</p>
+          </div>
+
+          <div class="form-group">
+            <label for="driveUrl">
+              <i class="fas fa-link"></i> Report Cloud Link
+              <span class="optional">(Google Drive / OneDrive)</span>
+            </label>
+            <input type="url" id="driveUrl" class="form-control" placeholder="https://drive.google.com/...">
+          </div>
+
+          <div class="form-group">
+            <label for="notes">
+              <i class="fas fa-comment-alt"></i> Additional Notes
+              <span class="optional">(optional)</span>
+            </label>
+            <textarea id="notes" class="form-control" rows="3" placeholder="Anything you'd like to add..."></textarea>
+          </div>
+
+          <p id="formError" style="color:#c62828; font-size:0.88rem; margin-bottom:12px; display:none;"></p>
+
+          <button type="submit" class="btn-submit-form">
+            <i class="fas fa-paper-plane"></i> Submit Work
+          </button>
+        </form>
+      </div>
+
+      <!-- Success state -->
+      <div class="modal-body success-state" id="successState">
+        <div class="check-icon"><i class="fas fa-check"></i></div>
+        <h3>Submission Recorded!</h3>
+        <p id="successMsg">Your work has been saved. Use the email button below to also send a confirmation to the professor.</p>
+        <a href="#" id="mailtoLink" class="mailto-link">
+          <i class="fas fa-envelope"></i> Send Confirmation Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Web Development Course</h4>
+          <p>ENSIA 2026 - Interactive Learning Platform</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="deadlines.html">Deadlines</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p>ENSIA - Algeria</p>
+          <p>mohamed.mahmoudi@ensia.edu.dz</p>
+        </div>
+        <div class="footer-section">
+          <h4>Developer</h4>
+          <p><a href="https://zakaria-mekki.vercel.app" target="_blank" style="color:#FF6B35;text-decoration:none;"><i class="fas fa-code"></i> Zakaria Mekki</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ENSIA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="modern-assets/js/main.js"></script>
+  <script src="modern-assets/js/config.js"></script>
+  <script>
+    const GATE_DAYS = 3; // gate opens this many days before deadline
+    const PROFESSOR_EMAIL = 'mohamed.mahmoudi@ensia.edu.dz';
+
+    /* ─── Helpers ─── */
+    function daysDiff(dateStr) {
+      const deadline = new Date(dateStr);
+      deadline.setHours(23, 59, 59, 999);
+      const now = new Date();
+      return Math.ceil((deadline - now) / (1000 * 60 * 60 * 24));
+    }
+
+    function formatDate(dateStr) {
+      return new Date(dateStr).toLocaleDateString('en-US', {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      });
+    }
+
+    function getSubmissions() {
+      return JSON.parse(localStorage.getItem('courseSubmissions') || '{}');
+    }
+
+    function saveSubmission(deadlineName, data) {
+      const all = getSubmissions();
+      if (!all[deadlineName]) all[deadlineName] = [];
+      all[deadlineName].push({ ...data, submittedAt: new Date().toISOString() });
+      localStorage.setItem('courseSubmissions', JSON.stringify(all));
+    }
+
+    function hasSubmitted(deadlineName) {
+      const email = localStorage.getItem('studentEmail') || '';
+      const subs = getSubmissions()[deadlineName] || [];
+      return email && subs.some(s => s.email === email);
+    }
+
+    /* ─── Render cards ─── */
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('deadlinesGrid');
+      const emptyBox = document.getElementById('emptyBox');
+
+      const globalDeadlines = (window.CourseGlobalConfig?.deadlines) || [];
+      const localDeadlines  = JSON.parse(localStorage.getItem('courseDeadlines') || '[]');
+      const deadlines = [...globalDeadlines, ...localDeadlines]
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+      if (!deadlines.length) {
+        emptyBox.style.display = 'block';
+        return;
+      }
+
+      deadlines.forEach(item => {
+        const diff = daysDiff(item.date);
+        const isOpen   = diff >= 0 && diff <= GATE_DAYS;
+        const isClosed = diff < 0;
+        const isFuture = diff > GATE_DAYS;
+        const submitted = hasSubmitted(item.name);
+
+        let cardClass  = isClosed ? 'closed' : isOpen ? 'open' : 'future';
+        let badgeClass = isClosed ? 'badge-closed' : isOpen ? 'badge-open' : 'badge-future';
+        let badgeText  = isClosed ? '<i class="fas fa-lock"></i> Closed' :
+                         isOpen   ? '<i class="fas fa-door-open"></i> Open' :
+                                    '<i class="fas fa-clock"></i> Not Yet Open';
+        let countdownText = isClosed
+          ? `Deadline passed ${Math.abs(diff)} day${Math.abs(diff) !== 1 ? 's' : ''} ago`
+          : isOpen
+            ? (diff === 0 ? 'Due today!' : `${diff} day${diff !== 1 ? 's' : ''} remaining`)
+            : `Opens in ${diff - GATE_DAYS} day${(diff - GATE_DAYS) !== 1 ? 's' : ''}`;
+        let countdownClass = isClosed ? 'overdue' : isFuture ? 'future' : '';
+
+        let actionHTML;
+        if (submitted) {
+          actionHTML = `<div class="already-submitted"><i class="fas fa-check-circle"></i> Already submitted</div>`;
+        } else if (isOpen) {
+          actionHTML = `<button class="btn-submit open-modal"
+                          data-name="${item.name.replace(/"/g,'&quot;')}"
+                          data-date="${item.date}">
+                          <i class="fas fa-upload"></i> Submit Now
+                        </button>`;
+        } else {
+          actionHTML = `<button class="btn-submit disabled" disabled>
+                          <i class="fas fa-${isClosed ? 'lock' : 'hourglass-half'}"></i>
+                          ${isClosed ? 'Submission Closed' : 'Not Yet Open'}
+                        </button>`;
+        }
+
+        const card = document.createElement('div');
+        card.className = `deadline-card ${cardClass}`;
+        card.innerHTML = `
+          <div class="card-top">
+            <div class="deadline-name">${item.name}</div>
+            <span class="gate-badge ${badgeClass}">${badgeText}</span>
+          </div>
+          <div class="deadline-meta"><i class="fas fa-calendar-day"></i> ${formatDate(item.date)}</div>
+          <div class="countdown ${countdownClass}">${countdownText}</div>
+          ${actionHTML}
+        `;
+        grid.appendChild(card);
+      });
+
+      /* ─── Open modal ─── */
+      document.addEventListener('click', e => {
+        const btn = e.target.closest('.open-modal');
+        if (!btn) return;
+        currentDeadlineName = btn.dataset.name;
+        currentDeadlineDate = btn.dataset.date;
+        document.getElementById('modalDeadlineName').textContent = currentDeadlineName;
+        document.getElementById('modalDeadlineDate').textContent = 'Due: ' + formatDate(currentDeadlineDate);
+        document.getElementById('formState').style.display  = 'block';
+        document.getElementById('successState').style.display = 'none';
+        document.getElementById('submitForm').reset();
+        document.getElementById('fileName').style.display = 'none';
+        document.getElementById('formError').style.display = 'none';
+        // Pre-fill email if remembered
+        const savedEmail = localStorage.getItem('studentEmail') || '';
+        const savedName  = localStorage.getItem('studentName')  || '';
+        if (savedEmail) document.getElementById('studentEmail').value = savedEmail;
+        if (savedName)  document.getElementById('studentName').value  = savedName;
+        document.getElementById('modalOverlay').classList.add('active');
+      });
+    });
+
+    let currentDeadlineName = '';
+    let currentDeadlineDate = '';
+
+    /* ─── Close modal ─── */
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalOverlay').addEventListener('click', e => {
+      if (e.target === document.getElementById('modalOverlay')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    /* ─── File drop UX ─── */
+    const dropZone = document.getElementById('fileDropZone');
+    const pdfInput = document.getElementById('pdfFile');
+    const fileNameEl = document.getElementById('fileName');
+
+    pdfInput.addEventListener('change', () => {
+      if (pdfInput.files[0]) {
+        fileNameEl.textContent = '📄 ' + pdfInput.files[0].name;
+        fileNameEl.style.display = 'block';
+        dropZone.style.borderColor = 'var(--primary-orange)';
+      }
+    });
+
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      const file = e.dataTransfer.files[0];
+      if (file && file.type === 'application/pdf') {
+        pdfInput.files = e.dataTransfer.files;
+        fileNameEl.textContent = '📄 ' + file.name;
+        fileNameEl.style.display = 'block';
+        dropZone.style.borderColor = 'var(--primary-orange)';
+      }
+    });
+
+    /* ─── Form submission ─── */
+    document.getElementById('submitForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const errorEl = document.getElementById('formError');
+      errorEl.style.display = 'none';
+
+      const name     = document.getElementById('studentName').value.trim();
+      const email    = document.getElementById('studentEmail').value.trim();
+      const repoUrl  = document.getElementById('repoUrl').value.trim();
+      const driveUrl = document.getElementById('driveUrl').value.trim();
+      const notes    = document.getElementById('notes').value.trim();
+      const pdfFile  = pdfInput.files[0];
+
+      // Validate required fields
+      if (!name) { showError('Please enter your full name.'); return; }
+      if (!email || !email.includes('@')) { showError('Please enter a valid email address.'); return; }
+      if (!repoUrl) { showError('Please provide your repository link.'); return; }
+      if (!repoUrl.startsWith('http')) { showError('Repository URL must start with http:// or https://'); return; }
+
+      // Save to localStorage
+      const submissionData = {
+        name, email, repoUrl, driveUrl, notes,
+        pdfFileName: pdfFile ? pdfFile.name : null
+      };
+      saveSubmission(currentDeadlineName, submissionData);
+      localStorage.setItem('studentEmail', email);
+      localStorage.setItem('studentName', name);
+
+      // Build mailto link for confirmation email
+      const subject  = encodeURIComponent(`[Web Dev Course] Submission: ${currentDeadlineName}`);
+      const body     = encodeURIComponent(
+        `Dear Professor,\n\nPlease find my submission details below:\n\n` +
+        `Task: ${currentDeadlineName}\n` +
+        `Deadline: ${formatDate(currentDeadlineDate)}\n\n` +
+        `Student Name: ${name}\n` +
+        `Student Email: ${email}\n\n` +
+        `Repository: ${repoUrl}\n` +
+        (driveUrl ? `Report Link: ${driveUrl}\n` : '') +
+        (pdfFile  ? `PDF Attached: ${pdfFile.name} (please attach manually)\n` : '') +
+        (notes    ? `\nNotes: ${notes}\n` : '') +
+        `\nSubmitted at: ${new Date().toLocaleString()}\n\nBest regards,\n${name}`
+      );
+      document.getElementById('mailtoLink').href =
+        `mailto:${PROFESSOR_EMAIL}?subject=${subject}&body=${body}`;
+
+      document.getElementById('successMsg').textContent =
+        `Your work for "${currentDeadlineName}" has been recorded. ` +
+        (pdfFile ? 'Don\'t forget to attach your PDF to the confirmation email.' : '');
+
+      // Swap to success view
+      document.getElementById('formState').style.display   = 'none';
+      document.getElementById('successState').style.display = 'block';
+    });
+
+    function showError(msg) {
+      const el = document.getElementById('formError');
+      el.textContent = '⚠ ' + msg;
+      el.style.display = 'block';
+    }
+  </script>
+</body>
+
+</html>

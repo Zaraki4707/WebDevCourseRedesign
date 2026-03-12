@@ -34,10 +34,10 @@ An advanced, interactive learning platform designed for **ENSIA** students. This
 ```text
 root/
 ├── 🏠 index.html            # Main Entry Point
-├── 📚 modern-courses.html    # Course Catalog
-├── 📅 modern-deadlines.html  # Student Deadline Tracking
-├── 👨‍🏫 modern-teachers.html   # Faculty Directory
-├── 📈 modern-progress.html   # Student Analytics
+├── 📚 courses.html    # Course Catalog
+├── 📅 deadlines.html  # Student Deadline Tracking
+├── 👨‍🏫 teachers.html   # Faculty Directory
+├── 📈 progress.html   # Student Analytics
 ├── 🏗️ labs/                  # Modernized Practical Exercises (0-13)
 ├── ⚙️ cwebadmindev/          # Admin Portal & Management Logic
 └── 🎨 modern-assets/         # Centralized Styles & Global Config

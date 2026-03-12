@@ -88,7 +88,7 @@ function populateSidebar() {
       if (isActive) classes += ' active';
       
       html += `
-        <a href="modern-lesson.html?course=${lesson.id}" class="${classes}">
+        <a href="lesson.html?course=${lesson.id}" class="${classes}">
           <i class="fas ${lesson.icon}"></i>
           <span>${lesson.name}</span>
         </a>
